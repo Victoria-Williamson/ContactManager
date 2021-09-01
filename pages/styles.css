@@ -1,0 +1,22 @@
+*, html {padding:0; margin:0;}
+#content
+{
+    
+    display: grid;
+    grid-template-columns: auto;
+    align-content: center;
+    align-items: center;
+    margin: 0px;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+}
+#auth
+{
+    background-color: blue;
+    width: auto;
+}
+#nav
+{
+    
+}
