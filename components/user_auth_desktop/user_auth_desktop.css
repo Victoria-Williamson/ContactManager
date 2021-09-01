@@ -1,0 +1,197 @@
+body
+{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #E5E5E5;
+}
+#user-auth-card
+{
+        padding: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        min-height:450px;
+        background: #FFFFFF;
+        border-radius: 30px;
+        position: relative;
+        width:80vw;
+        min-width: 300px;
+       
+        padding-top: 50px;
+        padding-bottom: 50px;
+        height: 70vh;
+        max-height:  550px;
+        display: grid;
+        grid-template-columns: 50% 50%;
+       
+        align-items: center;
+        justify-items: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+#card-sign-up
+    {
+        padding: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        min-height:450px;
+        background: linear-gradient(180deg, #FF6F3C 0%, #FF9A3C 56.53%, #FFC93C 100%);
+       width: 100%;
+       height: 100%;
+        position: relative;
+        border-radius: 0px 30px 30px 0px;
+        
+        padding-top: 50px;
+        padding-bottom: 50px;
+       
+        
+        display: grid;
+        grid-template-rows: auto;
+       
+        align-items: center;
+        justify-items: center;
+        
+    }
+.header
+{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 150%;
+}
+
+.form
+{
+    display: grid;
+    grid-template-rows: auto;
+}
+
+#card-sign-up label
+{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 150%;
+    color:white;
+}
+
+label
+{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 150%;
+}
+#card-sign-up input
+{
+    background: transparent;
+    color:white;
+    height: 40px;
+    width: 256px;
+    border: 1px solid white;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+#card-sign-up ::placeholder
+{
+    color: white;
+}
+
+input
+{
+background: #FFFFFF;
+height: 40px;
+width: 256px;
+border: 1px solid #D4D4D8;
+box-sizing: border-box;
+border-radius: 4px;
+
+}
+
+#sign-up
+{
+    float: left;
+    width: 110px;
+    border: none;
+    height: 40px;
+    font-weight: 00;
+    font-size: 16px;
+    line-height: 150%;
+    color: #FF6F3C;
+    background: white;
+    border-radius: 5px;
+}
+
+#delete
+{
+    border: none;
+    width: 110px;
+    height: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color:white;
+    background: #FF6F3C;
+    border-radius: 5px;
+}
+input:focus
+{
+    outline: none;
+    border: 2px solid #FF6F3C;
+}
+
+#card-sign-up input:focus
+{
+    outline: none;
+    background-color:rgba(255, 255, 255, 0.30);
+}
+::placeholder
+{
+    padding: 5px;
+    font-size: 16px;
+    margin-left: 2px;
+}
+a
+{
+    color: #FF6F3C;
+}
+#card-sign-in
+    {
+        padding: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 350px;
+        background: #FFFFFF;
+       
+        position: relative;
+      
+        padding-top: 50px;
+        padding-bottom: 50px;
+        
+       
+        display: grid;
+        grid-template-rows: auto;
+       
+        align-items: center;
+        justify-items: center;
+        
+    }
+    #sign-in-btns
+    {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-column-gap: 8px;
+    }
+    
+    #sign-in
+    {
+        float: left;
+        width: 110px;
+        border: none;
+        height: 40px;
+        font-weight: 00;
+        font-size: 16px;
+        line-height: 150%;
+        color:white;
+        background: linear-gradient(90deg, #FF6F3C 18.03%, #FF9A3C 59.03%, #FFC93C 106.38%);
+        border-radius: 5px;
+    }
