@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Necessary Style Sheets -->
         <link rel="stylesheet" href="../../components/create_account_mobile/create_account_mobile.css">
         <link rel="stylesheet" href="../../components/sign_in_mobile/sign_in_mobile.css">
         <link rel="stylesheet" href="../../components/user_auth_desktop/user_auth_desktop.css">
@@ -11,6 +12,7 @@
         <title>Document</title>
     </head>
     <body>
+        <!-- Desktop user authentication UI breakpoint at 750px -->
         <div id="auth-desktop">
         <div id="content">
             <div id="auth">
@@ -20,6 +22,7 @@
         </div>
         </div>
        <script stype="textjavascript">
+        //    Sign In UI -> Create Account UI
            function needAccount()
            {
                var sign_in = document.getElementById("auth-mobile-signIn");
@@ -27,7 +30,7 @@
                sign_in.style.display="none";
                create.style.display="block";
            }
-
+        //    Create Account UI -> Sign In UI
            function hasAccount()
            {
                 var sign_in = document.getElementById("auth-mobile-signIn");
@@ -36,7 +39,9 @@
                 create.style.display="none";
            }
            </script>
+    <!-- UI for mobile user authentication -->
     <div id="auth-mobile">
+        <!-- UI for mobile user sign in -->
         <div id="auth-mobile-signIn" style="display: block;">
             <button onclick="needAccount()"> hello </button>
         <div id="auth" onclick="needAccount()">
@@ -52,17 +57,16 @@
            <input id="password" type="text" value="" placeholder="Password" name="name">
          </div>
          <div id="sign-in-btns">
-           <button id="sign-in"> Sign In </button>
+           <button id="sign-in-mobile"> Sign In </button>
            <a> Forgot Password? </a> </text>
          </div> 
        
          <text> Need an account? <button onclick="needAccount()"> Sign Up now</button> </text>
-</div>
-             <!-- <?php 
-        include('../../components/sign_in_mobile/sign_in_mobile.html')?> -->
+    </div>
         </div>
     </div>
 </div>
+<!-- UI for mobile user create -->
 <div id="auth-mobile-create" style="display: none;">
 <div id="card-sign-up-mobile">
         <text class="header"> Create An Account</text>
