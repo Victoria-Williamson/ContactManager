@@ -65,8 +65,7 @@
     </div>
         </div>
     </div>
-</div>
-<!-- UI for mobile user create -->
+    <!-- UI for mobile user create -->
 <div id="auth-mobile-create" style="display: none;">
 <div id="card-sign-up-mobile">
         <text class="header"> Create An Account</text>
@@ -90,6 +89,8 @@
             <text> Have an account? <button onclick="hasAccount()"> Sign In now</button> </text>
             
     </div>
+</div>
+
 </div>
 
        
