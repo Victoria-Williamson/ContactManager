@@ -22,6 +22,27 @@ body
     justify-content: center;
     width: 100vw;
 }
+@media screen and (max-width: 750px) {
+#auth-desktop
+{
+   display: none; 
+}
+#auth-mobile
+{
+    display: block;
+}
+}
+
+@media screen and (min-width: 750px) {
+    #auth-desktop
+    {
+       display: block; 
+    }
+    #auth-mobile
+    {
+        display: none;
+    }
+    }
 #auth
 {
    
