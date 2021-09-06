@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../../components/sign_in_mobile/sign_in_mobile.css">
         <link rel="stylesheet" href="../../components/user_auth_desktop/user_auth_desktop.css">
         <link rel="stylesheet" href="styles.css">
-        <title>Document</title>
+        <title>Welcome to Contact Manager</title>
     </head>
     <body>
         <!-- Desktop user authentication UI breakpoint at 750px -->

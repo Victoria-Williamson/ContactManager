@@ -1,0 +1,136 @@
+body
+{
+    background-color: white;
+
+}
+*, html {padding:0; margin:0;
+}
+#infoBox
+{
+    margin: 0;
+    padding: 0;
+    
+    /* background-color: */
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-items: center;
+}
+#addContact
+{
+    
+    width: 40px;
+    height: 40px;
+   
+    border: none;
+    border-radius: 50%;
+    margin-top: 10px;
+    background: radial-gradient(182.16% 86% at 50% 14%, #FF6F3C 0%, #FF9A3C 44.55%, #FFC93C 100%);
+}
+#contact-page
+{
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 400px auto;
+}
+
+#contact-header
+{
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-items: center;
+    height: 70px;
+}
+#search-div
+{
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-items: center;
+}
+#search
+{
+width: 80%;
+height: 35px;
+
+background: #FFFFFF;
+padding: 10px;
+color: #83838A;
+border: 1px solid #D4D4D8;
+box-sizing: border-box;
+border-radius: 30px;
+}
+::placeholder
+{
+    color: #83838A;
+}
+#infoBox
+{
+
+  
+   display: grid;
+   grid-template-columns: auto;
+   align-items: flex-end;
+   justify-items: flex-end;
+   
+
+}
+
+#infoBox text
+{
+    color: #5A5A5A;
+    font-weight: bold;
+    font-size: large;
+}
+hr 
+{
+
+    border: 1px solid #E9E9E9;
+    width: 100vw;
+}
+#contacts
+{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    line-height: 150%;
+    /* identical to box height, or 36px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #5A5A5A;
+}
+#list
+{
+    height: 100vh;
+    background-color: #FCFBFE;
+}
+#border
+{
+    position: absolute;
+    width: 100vw;
+    top:100px;
+    height: 1px;
+    background-color: #E9E9e9;
+}
+#info
+{
+    /* display:grid;
+    grid-template-rows:auto;
+    align-items: center;
+    justify-items: center; */
+    background-color: white;
+}
+#contact-list
+{
+    display: grid;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-items: center;
+    overflow-x: none;
+    overflow-y: auto;
+}
