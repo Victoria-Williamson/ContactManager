@@ -212,6 +212,6 @@ a
         font-size: 16px;
         line-height: 150%;
         color:white;
-        background: #f97400;
+        background: linear-gradient(180deg, #FF6F3C 0%, #FF9A3C 48.72%, #FFC93C 100%);
         border-radius: 5px;
     }
