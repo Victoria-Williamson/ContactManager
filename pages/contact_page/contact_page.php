@@ -4,6 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="../../components/contact_card/contact_card_styles.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../components\add_contact\add_contact.css">
+    <link rel="stylesheet" href="../../components\edit_contact\edit_contact.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
 </head>
@@ -60,6 +62,10 @@ function addContact(firstName,lastName,phoneNumber,userEmail)
         id="contact-header">
         <text id="contacts"> Contacts </text>
         </div>
+        <button id="addContact"> <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.3125 8.59375H13.2812V1.5625C13.2812 0.699707 12.5815 0 11.7188 0H10.1562C9.29346 0 8.59375 0.699707 8.59375 1.5625V8.59375H1.5625C0.699707 8.59375 0 9.29346 0 10.1562V11.7188C0 12.5815 0.699707 13.2812 1.5625 13.2812H8.59375V20.3125C8.59375 21.1753 9.29346 21.875 10.1562 21.875H11.7188C12.5815 21.875 13.2812 21.1753 13.2812 20.3125V13.2812H20.3125C21.1753 13.2812 21.875 12.5815 21.875 11.7188V10.1562C21.875 9.29346 21.1753 8.59375 20.3125 8.59375Z" fill="white"/>
+</svg>
+</button>
         <hr>
       
     <button onclick="addContact('Victoria','Williamson','1234567899','something@domain.com')"> Add Contact </button>
@@ -72,21 +78,17 @@ function addContact(firstName,lastName,phoneNumber,userEmail)
     
 </div>
 <div id="info"> 
-<div 
-        id="contact-header">
-        <text id="contacts"> </text>
-        </div>
-        <hr>
-        <div id="infoBox">
-       
-      
-        <button id="addContact"> <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M20.3125 8.59375H13.2812V1.5625C13.2812 0.699707 12.5815 0 11.7188 0H10.1562C9.29346 0 8.59375 0.699707 8.59375 1.5625V8.59375H1.5625C0.699707 8.59375 0 9.29346 0 10.1562V11.7188C0 12.5815 0.699707 13.2812 1.5625 13.2812H8.59375V20.3125C8.59375 21.1753 9.29346 21.875 10.1562 21.875H11.7188C12.5815 21.875 13.2812 21.1753 13.2812 20.3125V13.2812H20.3125C21.1753 13.2812 21.875 12.5815 21.875 11.7188V10.1562C21.875 9.29346 21.1753 8.59375 20.3125 8.59375Z" fill="white"/>
-</svg>
-</button>
-        </div>
+    <!--  UI for adding a contact located in ../../components/add_contact/add_contact.htmkl -->
+    <div id="add-contact">
+<?php 
+        include('../../components/add_contact/add_contact.html')?>
     </div>
+    <div id="edit-contact">
+    <?php 
+        include('../../components/edit_contact/edit_contact.html')?>
+</div>
 
+  <!--  UI for editing a contact located in ../../components/add_contact/add_contact.htmkl -->
 </div>
 </body>
 </html>
