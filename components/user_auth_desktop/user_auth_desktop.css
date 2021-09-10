@@ -33,7 +33,7 @@
         padding: 20px;
         padding-left: 10px;
         padding-right: 10px;
-        min-height:450px;
+        min-height:600px;
         background: #FFFFFF;
         border-radius: 30px;
         position: relative;
@@ -57,7 +57,7 @@
         padding-left: 10px;
         padding-right: 10px;
         min-height:450px;
-        background: linear-gradient(180deg, #FF6F3C 0%, #FF9A3C 56.53%, #FFC93C 100%);
+        background: linear-gradient(180deg, #FF6F3C 0%, #FF9A3C 48.72%, #FFC93C 100%);
        width: 100%;
        height: 100%;
         position: relative;
@@ -186,16 +186,11 @@ a
         padding-right: 10px;
         height: 350px;
         background: #FFFFFF;
-       
         position: relative;
-      
         padding-top: 50px;
         padding-bottom: 50px;
-        
-       
         display: grid;
         grid-template-rows: auto;
-       
         align-items: center;
         justify-items: center;
         
@@ -207,7 +202,6 @@ a
         grid-template-columns: 50% 50%;
         grid-column-gap: 8px;
     }
-    
     #sign-in
     {
         float: left;
@@ -218,6 +212,6 @@ a
         font-size: 16px;
         line-height: 150%;
         color:white;
-        background: linear-gradient(90deg, #FF6F3C 18.03%, #FF9A3C 59.03%, #FFC93C 106.38%);
+        background: #f97400;
         border-radius: 5px;
     }
