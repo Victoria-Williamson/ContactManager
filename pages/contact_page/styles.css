@@ -1,12 +1,11 @@
 body
 {
     background-color: white;
-    background-image: url('./bg.svg');
+    /*background-image: url('./bg.svg');*/
     background-repeat: repeat;
     background-position: center;
     background-size: cover;
     height: 100%;
-
 }
 *, html {padding:0; margin:0;
 }
