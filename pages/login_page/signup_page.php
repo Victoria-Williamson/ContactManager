@@ -13,6 +13,17 @@
         <title>Welcome to Contact Manager</title>
     </head>
     <body>
+         <!-- Desktop user authentication UI breakpoint at 750px -->
+         <div id="auth-desktop">
+        <div id="content">
+            <div id="auth">
+            <?php 
+        include('../../components/user_auth_desktop/user_auth_desktop.html')?>
+            </div>
+        </div>
+        </div>
+    <!-- UI for mobile user authentication -->
+    <div id="auth-mobile">
 <div id="card-sign-up-mobile">
         <text class="header"> Create An Account</text>
         <div class="form">
@@ -34,5 +45,6 @@
             <button id="sign-up-mobile"> Sign Up </button>
             <text> Have an account? <button onclick="hasAccount()"> Sign In now</button> </text>
 </div>  
+</div>
     </body>
     </html>
