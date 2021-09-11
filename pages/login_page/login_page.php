@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Necessary Style Sheets -->
+        <script src="../../endpoints/user_auth.js"></script>
         <link rel="stylesheet" href="../../components/create_account_mobile/create_account_mobile.css">
         <link rel="stylesheet" href="../../components/sign_in_mobile/sign_in_mobile.css">
         <link rel="stylesheet" href="../../components/user_auth_desktop/user_auth_desktop.css">
@@ -21,43 +22,25 @@
             </div>
         </div>
         </div>
-       <script stype="textjavascript">
-        //    Sign In UI -> Create Account UI
-           function needAccount()
-           {
-               var sign_in = document.getElementById("auth-mobile-signIn");
-               var create = document.getElementById("auth-mobile-create");
-               sign_in.style.display="none";
-               create.style.display="block";
-           }
-        //    Create Account UI -> Sign In UI
-           function hasAccount()
-           {
-                var sign_in = document.getElementById("auth-mobile-signIn");
-                var create = document.getElementById("auth-mobile-create");
-                sign_in.style.display="block";
-                create.style.display="none";
-           }
-           </script>
     <!-- UI for mobile user authentication -->
     <div id="auth-mobile">
         <!-- UI for mobile user sign in -->
         <div id="auth-mobile-signIn" style="display: block;">
-            <button onclick="needAccount()"> hello </button>
+            <button onclick="needAccount()"></button>
         <div id="auth" onclick="needAccount()">
         <div id="card-sign-in-mobile">
        
        <text class="header"> Sign In</text>
        <div class="form">
-           <label for="email">Email</label>
-           <input id="email" type="text" value="" placeholder="email@domain.com" name="email">
+           <label for="username">Username</label>
+           <input id="username-mobile" type="text" value="" placeholder="insert your username" name="username">
          </div>
          <div class="form">
            <label for="password">Password</label>
-           <input id="password" type="text" value="" placeholder="Password" name="name">
+           <input id="password-mobile" type="text" value="" placeholder="Password" name="name">
          </div>
          <div id="sign-in-btns">
-           <button id="sign-in-mobile"> Sign In </button>
+           <button id="sign-in-mobile" onclick='doLogin("mobile")'> Sign In </button>
            <a> Forgot Password? </a> </text>
          </div> 
        
