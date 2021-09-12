@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="../../endpoints/contact_page.js"></script>
     <link rel="stylesheet" href="../../components/contact_card/contact_card_styles.css">
+    <link rel="stylesheet" href="../../components/edit_contact/edit_contact_styles.css">
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
@@ -14,7 +15,7 @@
     <text> Contacts </text>
   </div>
   <hr>
-
+  
   <div id="search-div">
       <div id="actions">
       <input id="search"/>
@@ -23,9 +24,13 @@
       </button>
     </div>
 </div>
-
+<!-- <div id="edit-contact-div" class="modify-div">
+<?php  include('../../components/edit_contact/edit_contact.html')?>
+</div> -->
+<!-- <div id="add-contact-div" class="modify-div">
+<?php  include('../../components/add_contact/add_contact.html')?>
+</div> -->
 <div id="contact-list">
-    
 </div>
 </div>
   

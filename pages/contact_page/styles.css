@@ -2,6 +2,7 @@ html, body
 {
     background-color: #FCFBFE;
     overflow-x: none;
+    overflow-y: none;
     background-repeat: repeat;
     background-position: center;
     width: 100vw;
@@ -189,18 +190,46 @@ hr
     ::-webkit-scrollbar-thumb:hover {
     background: #999;  
     }
-#contact-list
+    .modify-div
+    {
+        position: absolute;
+        top:0px;
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        background: rgba(131, 131, 138, 0.3);
+        backdrop-filter: blur(10px);
+    }
+#contact-div
 {
-    margin: 0px;
-    padding: 0px;
-    width: 100vw;
-    margin: 20px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    background-color: yellow;
+    display: grid;
+    grid-template-columns: auto;
     align-items: center;
     justify-items: center;
-    max-height: 90vh;
+}
+#contact-list
+{
+    -webkit-perspective:1;
+    margin-top: 10px;
+    padding-top: 50px;
+    width: 100vw;
+    -webkit-column-count:4;
+    -moz-column-count:4;
+    column-count:4;
+    display: flex;
+    column-gap: 20px;
+    row-gap: 20px;
+    column-count: 4;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: 100%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
     overflow-x: none;
     overflow-y: auto;
 }
