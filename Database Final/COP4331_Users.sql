@@ -23,14 +23,14 @@ DROP TABLE IF EXISTS `Users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Users` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `uid` int NOT NULL AUTO_INCREMENT,
   `DateCreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `DateLastLoggedIn` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `FirstName` varchar(100) NOT NULL DEFAULT '',
-  `LastName` varchar(50) NOT NULL DEFAULT '',
-  `Login` varchar(50) NOT NULL DEFAULT '',
-  `Password` varchar(50) NOT NULL DEFAULT '',
-  PRIMARY KEY (`ID`)
+  `firstName` varchar(100) NOT NULL DEFAULT '',
+  `lastName` varchar(50) NOT NULL DEFAULT '',
+  `login` varchar(50) NOT NULL DEFAULT '',
+  `password` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-12 13:28:24
+-- Dump completed on 2021-09-12 19:26:14

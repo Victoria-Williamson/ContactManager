@@ -4,6 +4,7 @@
 	$inData = getRequestInfo();
 				 
 	$uid = $inData["uid"];
+	$cid = $inData["cid"];
 	$firstName = $inData["firstName"];
 	$lastName = $inData["lastName"];
 	$phone = $inData["PhoneNumber"];
@@ -14,7 +15,7 @@
 	if ($conn->connect_error) {
 		returnWithErrorContact($conn->connect_error);
 	} else {
-		$sql = "SELECT * FROM Contacts WHERE uid=" . $uid . ";";
+		$sql = "SELECT * FROM Contacts WHERE cid=" . $cid . ";";
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
@@ -50,12 +51,12 @@
 					"', lastName = '" . $lastName . 
 					"', PhoneNumber = '" . $phone .
 					"', Email = '" . $email .  
-					"WHERE uid = " . $uid . ";";
+					"WHERE cid = " . $cid . ";";
 
 	if ($result = $conn->query($sql) != TRUE) {
 		returnWithErrorContact("No Records Found");
 	} else {
-		returnWithInfoContact($uid, $firstName, $lastName, $phone, 
+		returnWithInfoContact($uid, $cid, $firstName, $lastName, $phone, 
 													$email, "");
 	}
 		

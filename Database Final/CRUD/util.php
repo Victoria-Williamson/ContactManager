@@ -45,7 +45,7 @@
 	}
 
 	// creates an object with info about a contact
-	function createObjectContact($uid, $firstName, $lastName, $phone, $email,
+	function createObjectContact($uid, $cid, $firstName, $lastName, $phone, $email,
 							   						 	  $error) {
 		$obj->uid = $uid;
 		$obj->firstName = $firstName;

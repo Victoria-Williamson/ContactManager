@@ -3,8 +3,8 @@
 
     $inData = getRequestInfo();
 
-	$login = $inData["Login"];
-    $password = $inData["Password"];
+	$login = $inData["login"];
+    $password = $inData["password"];
     $uid = 0;
     $firstName = "";
     $lastName = "";
@@ -24,7 +24,7 @@
             $row = $result->fetch_assoc();
             $firstName = $row["firstName"];
             $lastName = $row["lastName"];
-            $uid = $row["ID"];
+            $uid = $row["uid"];
             
             returnWithInfoUser($uid, $login, "", $firstName, $lastName, "");
         } else returnWithErrorUser("The account with the given login and password does not exist.");

@@ -23,13 +23,16 @@ DROP TABLE IF EXISTS `Contacts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Contacts` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `FirstName` varchar(50) NOT NULL,
-  `LastName` varchar(50) NOT NULL,
+  `cid` int NOT NULL AUTO_INCREMENT,
+  `uid` int NOT NULL,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
   `PhoneNumber` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `DateCreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `DateLastLoggedIn` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`cid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +41,7 @@ CREATE TABLE `Contacts` (
 
 LOCK TABLES `Contacts` WRITE;
 /*!40000 ALTER TABLE `Contacts` DISABLE KEYS */;
-INSERT INTO `Contacts` VALUES (1,'Joel','Cruz','561-555-5555','zed@domain.com');
+INSERT INTO `Contacts` VALUES (2,1,'Joel','Cruz','561-555-5555','zed@domain.com','2021-09-12 22:37:59','2021-09-12 22:37:59');
 /*!40000 ALTER TABLE `Contacts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-12 13:28:28
+-- Dump completed on 2021-09-12 19:26:18

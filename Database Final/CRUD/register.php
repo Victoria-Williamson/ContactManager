@@ -2,19 +2,19 @@
 	include 'util.php';
 
 	$inData = getRequestInfo();
-	checkUser($inData["Login"], $inData["Password"], $inData["FirstName"], $inData["LastName"]);
+	checkUser($inData["login"], $inData["password"], $inData["firstName"], $inData["lastName"]);
 
-	$firstName = $inData["FirstName"];
-	$lastName = $inData["LastName"];
-	$login = $inData["Login"];
-	$password = $inData["Password"];
+	$firstName = $inData["firstName"];
+	$lastName = $inData["lastName"];
+	$login = $inData["login"];
+	$password = $inData["password"];
 	
 	$conn = db_connection();
 
 	if ($conn->connect_error) {
 		returnWithErrorUser($conn->connect_error);
 	} else {
-		$sql = "insert into Users (FirstName, LastName, Login, Password) VALUES ('" . $firstName . 
+		$sql = "insert into Users (firstName, lastName, login, password) VALUES ('" . $firstName . 
 		"', '". $lastName . "', '" . $login . "', '" . $password . "')";
 
 		if ($result = $conn->query($sql) != TRUE) {

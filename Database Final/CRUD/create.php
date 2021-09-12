@@ -7,6 +7,7 @@
 				 			 $inData["Email"]);
 				 
 	$uid = $inData["uid"];
+	$cid = 0;
 	$firstName = $inData["firstName"];
 	$lastName = $inData["lastName"];
 	$phone = $inData["PhoneNumber"];
