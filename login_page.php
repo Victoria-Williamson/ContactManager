@@ -1,11 +1,10 @@
-
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Necessary Style Sheets -->
-        <script src="/endpoints/user_auth.js"></script>
+        <script src="/endpoints/endpoints.js"></script>
         <link rel="stylesheet" href="/components/create_account_mobile/create_account_mobile.css">
         <link rel="stylesheet" href="/components/sign_in_mobile/sign_in_mobile.css">
         <link rel="stylesheet" href="/components/user_auth_desktop/user_auth_desktop.css">
@@ -13,6 +12,10 @@
         <title>Welcome to Contact Manager</title>
     </head>
     <body>
+    <div class="alert">
+      <text id="alert-text"> This is an alert box </text>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">x</span>
+  </div>
         <!-- Desktop user authentication UI breakpoint at 750px -->
         <div id="auth-desktop">
         <div id="content">
@@ -21,6 +24,7 @@
         <div id="card-sign-in">
        
             <text class="header"> Sign In</text>
+            <text class="text-alert-sign-in"> Cannot find account with these credentials</text>
             <div class="form">
                 <label for="username-desktop">Email</label>
                 <input id="username-desktop" type="text" value="" placeholder="email@domain.com" name="email">
@@ -29,13 +33,13 @@
                 <label for="password">Password</label>
                 <input id="password-desktop" type="text" value="" placeholder="Password" name="name">
               </div>
+              
               <div id="sign-in-btns">
                 <button id="sign-in" onclick='doLogin("desktop")'> Sign In </button>
                 <a style="font-size: smaller"> Forgot Password? </a> </text>
               </div>
             
     </div>
-
     <div id="card-sign-up">
         <text class="header" style="color: white;"> Create An Account</text>
         <div class="form">
@@ -69,8 +73,10 @@
             <button onclick="needAccount()"></button>
         <div id="auth" onclick="needAccount()">
         <div id="card-sign-in-mobile">
-       
+       <div id = "alrert">
+</div>
        <text class="header"> Sign In</text>
+       <text class="text-alert-sign-in"> Cannot find account with these credentials</text>
        <div class="form">
            <label for="username">Username</label>
            <input id="username-mobile" type="text" value="" placeholder="insert your username" name="username">
@@ -113,9 +119,7 @@
             
     </div>
 </div>
-
 </div>
-
        
        
     </body>
