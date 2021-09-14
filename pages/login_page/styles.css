@@ -10,7 +10,14 @@ body
     background-size: cover;
     height: 100%;
 }
-
+.alert-message
+{
+    font-weight: bold;
+}
+.header-white
+{
+    color: white;
+}
 #content
 {
     display: grid;

@@ -113,6 +113,7 @@ function doLogin(ext)
                 lastName = jsonObject.lastName;
 
                 saveCookie();
+        
         // If the credentials are correct allow the user to be logged in
         // and access the contact page
         console.log("User: " + login + "Found, Logging in...");
@@ -172,22 +173,36 @@ function readCookie()
 
 function doSignUp(ext)
 {
-    console.log("Document Location ", document.location);
+    var alert = document.getElementById("alert-" +ext);
+    alert.innerHTML="";
     // Get all the neccessary values
     
-   
-    // var username = document.getElementById("username-"+ ext).value;
-    // var password = document.getElementById("password-" + ext).value;
-    // var number = document.getElementById("number-" + ext).value;
+    var firstName = document.getElementById("firstname-"+ ext).value;
+    var lastName = document.getElementById("lastname-" + ext).value;
+    var username = document.getElementById("username-"+ ext).value;
+    var password = document.getElementById("password-" + ext).value;
+    var password_confirm = document.getElementById("password-confirm-"+ext);
+    var number = document.getElementById("number-" + ext).value;
     
-    // document.getElementById("username-" + ext).innerHTML = "";
-    // document.getElementById("password-" + ext).innerHTML = "";
-    // document.getElementById("number-" + ext).innerHTML = "";
+    
+    document.getElementById("firstname-" + ext).innerHTML = "";
+    document.getElementById("lastname-" + ext).innerHTML = "";
+    document.getElementById("username-" + ext).innerHTML = "";
+    document.getElementById("password-" + ext).innerHTML = "";
+    document.getElementById("password-confirm-" + ext).innerHTML = "";
+    document.getElementById("number-" + ext).innerHTML = "";
+
+    if (password_confirm != password)
+    {
+        console.log("passwords do not match");
+        alert.innerHTML = "Passwords do not match";
+        return;
+    }
 
     // Check that the login credentials are correct
     
     // Check that the login credentials are correct
-    var tmp = {firstName: "V", lastName: "W", login: "logIN",password:"psswrd"};
+    var tmp = {firstName: firstName, lastName: lastName, login: username,password:password};
 //	var tmp = {login:login,password:hash};
 	var jsonPayload = JSON.stringify( tmp );
 	
@@ -208,18 +223,20 @@ function doSignUp(ext)
 				userId = jsonObject.id;
                 console.log("id",userId)
 				if( userId < 1 || userId === undefined)
-				{	console.log("User / Password Information Incorrect")
+				{	
+                    alert.innerHTML = "Cannot find a match for the given password or username";
+                    console.log("User / Password Information Incorrect")
 					return;
 				}
 		
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
 
-                // saveCookie();
+        saveCookie();
         // If the credentials are correct allow the user to be logged in
         // and access the contact page
-        // console.log("User: " + login + "Found, Logging in...");
-        // document.location = url + "contact_page.php";
+        console.log("User: " + login + "Found, Logging in...");
+        document.location = url + "contact_page.php";
                 }
             };
             xhr.send(jsonPayload);
@@ -228,10 +245,6 @@ function doSignUp(ext)
         {
             console.log(err.message);
         }
-    // If the credentials are correct allow the user to be logged in
-    // and access the contact page
-   
-    document.location = url + "contact_page.php";
 }
 
 function doLogOut()
