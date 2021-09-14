@@ -13,28 +13,26 @@
         <title>Welcome to Contact Manager</title>
     </head>
     <body>
-    <div class="alert">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-  This is an alert box.
-</div>
          <!-- Desktop user authentication UI breakpoint at 750px -->
          <div id="auth-desktop">
         <div id="content">
             <div id="auth">
             <div id="user-auth-card">
         <div id="card-sign-in">
-       
-            <text class="header"> Sign In</text>
+        <text class="header"> Sign In</text>
+            <div id="alert-signin-desktop" class="alert-msg">
+        </div>  
             <div class="form">
-                <label for="username-desktop">Email</label>
-                <input id="username-desktop" type="text" value="" placeholder="email@domain.com" name="email">
+                <label for="username">Email</label>
+                <input id="username-signin-desktop" type="text" value="" placeholder="email@domain.com" name="email">
               </div>
               <div class="form">
                 <label for="password">Password</label>
-                <input id="password-desktop" type="text" value="" placeholder="Password" name="name">
+                <input id="password-signin-desktop" type="text" value="" placeholder="Password" name="name">
               </div>
+              
               <div id="sign-in-btns">
-                <button id="sign-in" onclick='doLogin("desktop")'> Sign In </button>
+                <button id="sign-in" onclick='doLogin("signin-desktop")'> Sign In </button>
                 <a style="font-size: smaller"> Forgot Password? </a> </text>
               </div>
             

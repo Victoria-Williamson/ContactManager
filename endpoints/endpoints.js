@@ -70,7 +70,9 @@ function hasAccount()
 // Allows the User to Log into their account 
 function doLogin(ext)
 {
-    console.log("doLogin()");
+    var alert = document.getElementById("alert-" +ext);
+    alert.innerHTML="";
+    
     // Reset all variables to default setting 
     userId = 0;
 	firstName = "";
@@ -85,7 +87,7 @@ function doLogin(ext)
     document.getElementById("password-" + ext).innerHTML = "";
 
     // Check that the login credentials are correct
-    var tmp = {login:"tst",password:"tst"};
+    var tmp = {login: login,password:password};
 //	var tmp = {login:login,password:hash};
 	var jsonPayload = JSON.stringify( tmp );
 	
@@ -105,7 +107,8 @@ function doLogin(ext)
 				userId = jsonObject.id;
                 console.log(userId)
 				if( userId < 1 || userId === undefined)
-				{	console.log(userId,"User / Password Information Incorrect")
+				{	
+                    alert.innerHTML="User / Password Information Incorrect";
 					return;
 				}
 		
