@@ -45,7 +45,7 @@
 	
 // }
 
-var url = "http://localhost:8001/";
+var url = "http://localhost:8000/";
 var apiURL = "http://localhost:8000/APIs/CRUD";
 // var url = "http://stirup.com/";
 
@@ -195,12 +195,12 @@ function doSignUp(ext)
     document.getElementById("password-confirm-" + ext).innerHTML = "";
     document.getElementById("number-" + ext).innerHTML = "";
 
-    if (password_confirm != password)
-    {
-        console.log("passwords do not match");
-        alert.innerHTML = "Passwords do not match";
-        return;
-    }
+    // if (password_confirm != password)
+    // {
+    //     console.log("passwords do not match");
+    //     alert.innerHTML = "Passwords do not match";
+    //     return;
+    // }
 
     // Check that the login credentials are correct
     
@@ -210,7 +210,6 @@ function doSignUp(ext)
 	var jsonPayload = JSON.stringify( tmp );
 	
 	var loc = url + "APIs/CRUD/register.php";
-    console.log(loc);
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", loc, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
