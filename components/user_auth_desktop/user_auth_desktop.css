@@ -1,5 +1,5 @@
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 650px) {
     body
     {
         display: block;
@@ -14,7 +14,7 @@
     }
     }
     
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 650px) {
         body
         {
             display: none;
@@ -81,6 +81,7 @@
     font-weight: bold;
     font-size: 36px;
     line-height: 150%;
+    font-family: 'Maven Pro', sans-serif;
 }
 
 .form
@@ -141,9 +142,13 @@ border-radius: 4px;
     font-weight: 00;
     font-size: 16px;
     line-height: 150%;
-    color: #FF6F3C;
+    color:#FF9A3C;
     background: white;
     border-radius: 5px;
+}
+#sign-up:hover
+{
+    background-color: whitesmoke;
 }
 
 #delete
@@ -166,8 +171,10 @@ input:focus
 
 #card-sign-up input:focus
 {
+    color: black;
     outline: none;
-    background-color:rgba(255, 255, 255, 0.30);
+    background-color:white;
+    border: 2px solid #FFC93C
 }
 ::placeholder
 {
@@ -208,10 +215,14 @@ a
         width: 110px;
         border: none;
         height: 40px;
-        font-weight: 00;
+        font-weight: bold;
         font-size: 16px;
         line-height: 150%;
         color:white;
-        background: linear-gradient(180deg, #FF6F3C 0%, #FF9A3C 48.72%, #FFC93C 100%);
+        background: #FF9A3C;
         border-radius: 5px;
+    }
+    #sign-in:hover
+    {
+        background-image: linear-gradient(#FF9A3C, #FF6F3C);
     }

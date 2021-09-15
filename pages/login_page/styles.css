@@ -1,6 +1,39 @@
 *, html {padding:0; margin:0;
+    font-family: 'Maven Pro', sans-serif;
     }
- 
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+#switch
+{
+    font-weight: bold;
+    font-size: medium;
+    color: #FF9A3C;
+}
+#switch:hover
+{
+    color: #FF6F3C;
+}
+button:hover #switch
+{
+    color: #FF6F3C;
+    transform: scale(1.1);
+}
+button
+{
+    color: black;
+    font-size: medium;
+    transition: all .2s ease-in-out;
+}
+input
+{
+    padding: 8px;
+}
 body
 {
     background-color:white;
@@ -29,7 +62,7 @@ body
     justify-content: center;
     width: 100vw;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 900px) {
 #auth-desktop
 {
    display: none; 
@@ -40,7 +73,7 @@ body
 }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 900px) {
     #auth-desktop
     {
        display: block; 

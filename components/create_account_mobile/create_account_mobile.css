@@ -9,12 +9,16 @@ body
     width: 110px;
     border: none;
     height: 40px;
-    font-weight: 00;
+    font-weight: bold;
     font-size: 16px;
     line-height: 150%;
     color:white;
-    background: linear-gradient(90deg, #FF6F3C 18.03%, #FF9A3C 59.03%, #FFC93C 106.38%);
+    background: #FF9A3C;
     border-radius: 5px;
+}
+#sign-up-mobile:hover
+{
+    background-color: #FF6F3C;
 }
 #card-sign-up-mobile
     {
@@ -77,12 +81,16 @@ border-radius: 4px;
     width: 110px;
     border: none;
     height: 40px;
-    font-weight: 00;
+    font-weight: bold;
     font-size: 16px;
     line-height: 150%;
     color:white;
-    background: linear-gradient(90deg, #FF6F3C 18.03%, #FF9A3C 59.03%, #FFC93C 106.38%);
+    background-color: #FF9A3C;
     border-radius: 5px;
+}
+#sign-up:hover
+{
+    color:#FF6F3C;
 }
 
 #delete
@@ -108,12 +116,7 @@ input:focus
     font-size: 16px;
     margin-left: 2px;
 }
-#sign-up
-{
-    color:white;
-    background: linear-gradient(90deg, #FF6F3C 18.03%, #FF9A3C 59.03%, #FFC93C 106.38%);
-    border-radius: 5px;
-}
+
 a
 {
     color: #FF6F3C;

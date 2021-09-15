@@ -84,7 +84,7 @@ function addContact(firstName,lastName,phoneNumber,userEmail)
     var phone = document.createElement('a');
     phone.className="info";
     phone.href="tel:+" + phoneNumber;
-    phone.innerHTML = "Phone: " + "(" + phoneNumber.slice(0,3) + ")"  + phoneNumber.slice(3,6) + "-" + phoneNumber.slice(6);
+    phone.innerHTML = "Phone: " + "(" + phoneNumber.slice(0,3) + ")" + "\xa0" + phoneNumber.slice(3,6) + "-" + phoneNumber.slice(6);
 
     var email = document.createElement('a');
     email.className="info";

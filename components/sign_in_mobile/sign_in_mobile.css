@@ -14,8 +14,9 @@ body
         background: #FFFFFF;
         border-radius: 15px;
         position: relative;
-        width:85vw;
+        width:80vw;
         min-width: 300px;
+        max-width: 500px;
         
         padding-top: 50px;
         padding-bottom: 50px;
@@ -112,10 +113,13 @@ button
     color: #FF9A3C;
     background-color: transparent;
     border: none;
+    transition: all .2s ease-in-out;
 }
 button:hover
 {
-    font-weight: bolder;
+    
+    transform: scale(1.1);
+   
 }
 a
 {
