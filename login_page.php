@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Necessary Style Sheets -->
         <script src="/endpoints/endpoints.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Maven+Pro:wght@500;600;700;800;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/components/create_account_mobile/create_account_mobile.css">
         <link rel="stylesheet" href="/components/sign_in_mobile/sign_in_mobile.css">
         <link rel="stylesheet" href="/components/user_auth_desktop/user_auth_desktop.css">
@@ -17,7 +20,7 @@
         <div id="content">
             <div id="auth">
             <div id="user-auth-card">
-        <div id="card-sign-in">
+        <div id="card-sign-in" class="signin">
        
             <text class="header"> Sign In</text>
             <div id="alert-signin-desktop" class="alert-msg">
@@ -33,7 +36,7 @@
               
               <div id="sign-in-btns">
                 <button id="sign-in" onclick='doLogin("signin-desktop")'> Sign In </button>
-                <a style="font-size: smaller"> Forgot Password? </a> </text>
+               
               </div>
             
     </div>
@@ -79,7 +82,7 @@
         <div id="auth-mobile-signIn" style="display: block;">
            
         
-        <div id="card-sign-in-mobile">
+        <div id="card-sign-in-mobile" class="signin">
         <text class="header"> Sign In</text>
             <div id="alert-signin-mobile" class="alert-msg">
         </div>  
@@ -93,11 +96,12 @@
               </div>
               
               <div id="sign-in-btns">
-                <button id="sign-in" onclick='doLogin("signin-mobile")'> Sign In </button>
-                <a style="font-size: smaller"> Forgot Password? </a> </text>
+                <button id="sign-in" onclick='doLogin("signin-mobile")'> Submit </button>
+              
               </div>
        
-         <text> Need an account? <button onclick="needAccount()"> Sign Up now</button> </text>
+              <button onclick="needAccount()"><text > Need an account </text>
+              <text id="switch" > Sign up now  </button>
     </div>
         </div>
     </div>
