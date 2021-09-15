@@ -258,21 +258,35 @@ function doForgotPassword()
 {
 
 }
+
+// The code is in the notes - Ellie 
 function searchContacts()
 {
+    var search = document.getElementById("search").value;
+    document.getElementById('search').innerHTML = "";
 
+    document.getElementById('contact-list').innerHTML = "";
+    var contactList = "";
+
+    var tmp = {search:search,userId:userId};
+	var jsonPayload = JSON.stringify( tmp );
+
+    // var loc = url + "APIs/CRUD/register.php";
 }
 
+// Ellie 
 function editContact()
 {
-
+    
 }
 
+// Ellie 
 function deleteContact()
 {
 
 }
 
+// Vic
 function addContact(firstName,lastName,phoneNumber,userEmail)
 {
     console.log(userId);
@@ -319,6 +333,7 @@ function addContact(firstName,lastName,phoneNumber,userEmail)
     list.append(card);
 }
 
+// Vic
 function pageLoad()
 {
      
