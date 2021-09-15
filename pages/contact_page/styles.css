@@ -51,12 +51,8 @@ html, body
     margin-top: 10px;
     background: radial-gradient(182.16% 86% at 50% 14%, #FF6F3C 0%, #FF9A3C 44.55%, #FFC93C 100%);
 }
-#contact-page
-{
-    display: grid;
-    overflow: hidden
-    grid-template-columns: 400px auto;
-}
+
+
 
 #contact-header
 {
@@ -192,6 +188,7 @@ hr
     }
     .modify-div
     {
+        display:none;
         position: absolute;
         top:0px;
         height: 100vh;
@@ -199,16 +196,25 @@ hr
         display: grid;
         align-items: center;
         justify-items: center;
-        background: rgba(131, 131, 138, 0.3);
-        backdrop-filter: blur(10px);
+        background: rgba(245, 245, 245, 0.603);
+        backdrop-filter: blur(3px);
+    }
+    .center-div
+    {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        justify-items: center;
     }
 
 #contact-div
 {
-    max-height: 100vh;
-    overflow-y: auto;
     display: grid;
     grid-template-columns: 50px auto 50px;
+    max-height: 100%;
+    overflow:auto;
     align-items: center;
 }
 #contact-list

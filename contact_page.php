@@ -27,12 +27,18 @@
       </button>
     </div>
 </div>
-<!-- <div id="edit-contact-div" class="modify-div">
-<?php  include('../../components/edit_contact/edit_contact.html')?>
+
+<div id="action-div"/>
+<!-- <div id="edit-contact-div" class="modify-div"/>
+<div class="center-div">
+<?php  include('./components/edit_contact/edit_contact.html')?>
 </div> -->
-<!-- <div id="add-contact-div" class="modify-div">
-<?php  include('../../components/add_contact/add_contact.html')?>
+
+<!-- <div id="add-contact-div" class="modify-div"/>
+<div class="center-div">
+<?php  include('./components/add_contact/add_contact.html')?>
 </div> -->
+
 <div id="contact-div">
 <div id="something"></div>
 <div id="contact-list">
