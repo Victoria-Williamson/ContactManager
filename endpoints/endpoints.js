@@ -1,66 +1,12 @@
-// function doAction()
-// {
-	
-// 	// Get the values for the HTML
-
-// 	// Create the JS object to send to the PHP and convert it to JSON
-// 	var obj = 
-// 	{	
-
-// 	};
-
-// 	var input = JSON.stringify();
-	
-// 	// Open up a new Request
-// 	var url = urlBase + '<FileName>' + extension;
-// 	var xhr = new XMLHttpRequest();
-// 	xhr.open("POST", url, true);
-// 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
-// 	// Send the Request 
-// 	try
-// 	{
-// 		xhr.onreadystatechange = function() 
-// 		{
-// 			// If the request is valid :
-// 			if (this.readyState == 4 && this.status == 200) 
-// 			{
-// 				// Get the response
-// 				var jsonObject = JSON.parse( xhr.responseText);
-				
-				
-
-// 				saveCookie();
-	
-// 			}
-// 		};
-// 		xhr.send(jsonPayload);
-// 	}
-// 	// If the request is invalid:
-// 	catch(err)
-// 	{
-		
-// 	}
-// 	// Any aditional actions that need to happen after the process is complete: 
-	
-// }
-
-var contact_list;
-
-function getVars()
-{
-    console.log("getting");
-    contact_list = document.getElementById('contact-list');
-}
-
-
-
 var url = "http://localhost:8000/";
 var apiURL = "http://localhost:8000/APIs/CRUD";
 // var url = "http://stirup.com/";
 
 var info = "";
 var userId = 0;
+var curr_card;
+var curr_image;
+var curr_info;
 var firstName = "";
 var lastName = "";
 
@@ -283,38 +229,76 @@ function searchContacts()
 
     // var loc = url + "APIs/CRUD/register.php";
 }
+function GetElementInsideContainer(event, childID) {
+    var elm = {};
+    var elms = event.getElementsByTagName("*");
+    for (var i = 0; i < elms.length; i++) {
+        if (elms[i].id === childID) {
+            elm = elms[i];
+            break;
+        }
+    }
+    return elm;
+}
+function EditContact()
+{
 
+}
+function DelteContact()
+{
+
+}
 function showEditContact(event)
 {
-    var image = event.firstChild;
-    var info = event.lastChildl
-   
-    console.log(typeof image);
+    if (event.id !== "contact-card")
+        return;
+    console.log(GetElementInsideContainer(event, "contact-image"));
+    console.log("tst",document.getElementsByClassName(event.className));
+
+    var image = GetElementInsideContainer(event, "contact-image");
+    var initials = GetElementInsideContainer(image, "initials");
+
+    var info = GetElementInsideContainer(event, "user-information");
+    var name = GetElementInsideContainer(info, "user-name").innerHTML;
+    var name_seperated = name.split(" ");
+    var phone = GetElementInsideContainer(info, "phone").className;
+    phone = phone.replace('(')
+    var email = GetElementInsideContainer(info, "email").className;
+
+    curr_card = event;
+    curr_image = image;
+    curr_info = info;
 
     if (event.id !== "contact-card")
         return;
-    console.log(event.getElementById("contact-image"));
+    
     var parent = document.createElement('div');
     parent.id = "add-contact-div";
     parent.className = "modify-div";
 
     var inner = document.createElement("div");
     inner.className = 'center-div';
-    inner.innerHTML = '<div id="card"><div id="contact-image-big"><text id="initials"> ? </text></div><div class="form"><label for="first-add">First Name</label><input id="first-add" type="text" value="" placeholder="John" name="name"></div><div class="form"><label for="last-add">Last Name</label><input id="last-add" type="text" value="" placeholder="Doe" name="name"></div><div class="form"><label for="number-add">Phone Number</label><input id="number-add type="text" value="" placeholder="555-555-5555" name="number"></div><div class="form"><label for="email-add">Email</label><input id="email-add" type="text" value="" placeholder="email@domain.com" name="email"></div><div id="modify-buttons"><button id="save" onclick="editContact()"> Save </button><button id="delete" onclick="deleteContact()"> Delete </button></div><button id="exit" onclick="hideEditContact()"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="#919191"/></svg></div></div>';
+    inner.innerHTML = '<div id="card"><div id="contact-image-big"><text id="initials">' + initials.innerHTML + '</text></div><div class="form"><label for="first-add">First Name</label><input id="first-add" type="text" value="' + name_seperated[0] + '" placeholder="John" name="name"></div><div class="form"><label for="last-add">Last Name</label><input id="last-add" type="text" value="' + name_seperated[1] + '" placeholder="Doe" name="name"></div><div class="form"><label for="number-add">Phone Number</label><input id="number-add type="text" value="' + phone + '" placeholder="555-555-5555" name="number"></div><div class="form"><label for="email-add">Email</label><input id="email-add" type="text" value="' + email + '" placeholder="email@domain.com" name="email"></div><div id="modify-buttons"><button id="save" onclick="editContact()"> Save </button><button id="delete" onclick="deleteContact()"> Delete </button></div><button id="exit" onclick="hideEditContact()"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="#919191"/></svg></div></div>';
 
     parent.appendChild(inner);
 
-    var initials = event.getElementById("initials").innerHTML;
-    inner.getElementById("initials").innerHTML = initials;
+   
+    
     var loc = document.getElementById("action-div");
     loc.appendChild(parent);
     loc.style.display = "block";
 }
 
-// Ellie 
+
 function deleteContact()
 {
-
+    if (curr_card === null || curr_info === null || curr_image === null)
+        return;
+    curr_card.style.display = "none";
+    curr_card = null;
+    curr_image = null;
+    curr_info = null;
+    hideEditContact();
 }
 
 function showAddContact()
@@ -364,11 +348,12 @@ function addContact()
     card.id = "contact-card";
     card.onclick = function (e)
     {
-        console.log(e.target);
+        console.log(e);
         showEditContact(e.target);
     }
     var cardImage = document.createElement('div');
     cardImage.id = "contact-image";
+    cardImage.className = "contact-" + phoneNumber;
 
     var initials = document.createElement('text');
     initials.id = "initials";
@@ -385,12 +370,14 @@ function addContact()
     name.innerHTML = firstName + " " + lastName;
 
     var phone = document.createElement('a');
-    phone.className="info";
+    phone.id = "phone";
+    phone.className=phoneNumber;
     phone.href="tel:+" + phoneNumber;
     phone.innerHTML = "Phone: " + "(" + phoneNumber.slice(0,3) + ")"  + phoneNumber.slice(3,6) + "-" + phoneNumber.slice(6);
 
     var email = document.createElement('a');
-    email.className="info";
+    email.id = "email";
+    email.className=userEmail;
     email.href="mailto:" + userEmail;
     email.innerHTML = "Email: " + userEmail;
 
