@@ -45,6 +45,16 @@
 	
 // }
 
+var contact_list;
+
+function getVars()
+{
+    console.log("getting");
+    contact_list = document.getElementById('contact-list');
+}
+
+
+
 var url = "http://localhost:8000/";
 var apiURL = "http://localhost:8000/APIs/CRUD";
 // var url = "http://stirup.com/";
@@ -279,7 +289,7 @@ function deleteContact()
 
 }
 
-function addContact(firstName,lastName,phoneNumber,userEmail)
+function showAddContact()
 {
     var parent = document.createElement('div');
     parent.id = "add-contact-div";
@@ -287,14 +297,31 @@ function addContact(firstName,lastName,phoneNumber,userEmail)
 
     var inner = document.createElement("div");
     inner.className = 'center-div';
-    inner.innerHTML = '<div id="card"> <div id="contact-image-big"><text id="initials"> ? </text> </div><div class="form"><label for="name">First Name</label><input id="name" type="text" value="" placeholder="John" name="name"></div><div class="form"><label for="name">Lirst Name</label> <input id="name" type="text" value="" placeholder="Doe" name="name"></div><div class="form"><label for="name">Phone Number</label><input id="name" type="text" value="" placeholder="555-555-5555" name="number"></div><div class="form"><label for="name">Email</label><input id="name" type="text" value="" placeholder="email@domain.com" name="email"></div><div id="modify-buttons"><button id="save"> Save </button><button id="delete"> Delete </button></div><div id="exit"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="#919191"/></svg></div></div>';
+    inner.innerHTML = '<div id="card"><div id="contact-image-big"><text id="initials"> ? </text></div><div class="form"><label for="first-add">First Name</label><input id="first-add" type="text" value="" placeholder="John" name="name"></div><div class="form"><label for="last-add">Last Name</label><input id="last-add" type="text" value="" placeholder="Doe" name="name"></div><div class="form"><label for="number-add">Phone Number</label><input id="number-add type="text" value="" placeholder="555-555-5555" name="number"></div><div class="form"><label for="email-add">Email</label><input id="email-add" type="text" value="" placeholder="email@domain.com" name="email"></div><button id="save" onclick="addContact()"> Save </button><button id="exit" onclick="hideAddContact()"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="#919191"/></svg></div></div>';
 
     parent.appendChild(inner);
     
 
     var loc = document.getElementById("action-div");
     loc.appendChild(parent);
+    loc.style.display = "block";
+}
 
+function hideAddContact()
+{
+    var action = document.getElementById("action-div");
+    action.innerHTML = "";
+    action.style.display = "none";
+}
+function addContact()
+{
+    
+    hideAddContact();
+    var firstName = "vic";
+    var lastName = "last";
+    var phoneNumber = "555555555";
+    var userEmail = "email@domain.com";
+   
     console.log(userId);
     console.log(info);
     var card = document.createElement('div');
@@ -331,12 +358,14 @@ function addContact(firstName,lastName,phoneNumber,userEmail)
     user_information.appendChild(phone);
     user_information.append(email);
 
-    card.appendChild(user_information);
-
-
-
-    var list = document.getElementById("contact-list");
-    list.append(card);
+     card.appendChild(user_information);
+     console.log(document.getElementById('action-div'));
+     console.log(document.getElementById('contact-div'));
+        var parent = document.getElementById('contact-div');
+        console.log(parent);
+        var list = document.getElementById("contact-list");
+        list.append(card);
+    
 }
 
 function pageLoad()

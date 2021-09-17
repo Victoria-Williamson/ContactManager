@@ -13,6 +13,13 @@
     <title>Contacts</title>
 </head>
 <body>
+  <script type="text/javascrip">
+    document.onload = function()
+    {
+      getVars();
+    }
+    
+</script>
 <div>
   <div id="contact-header">
     <text> Contacts </text>
@@ -22,22 +29,13 @@
   <div id="search-div">
       <div id="actions">
       <input placeholder="Search..." id="search"/>
-      <button id="addContact" onclick="addContact('Victoria','Williamson','1234567899','something@domain.com')">
+      <button id="addContact" onclick="showAddContact()">
           <text> + </text>
       </button>
     </div>
 </div>
 
 <div id="action-div"/>
-<!-- <div id="edit-contact-div" class="modify-div"/>
-<div class="center-div">
-<?php  include('./components/edit_contact/edit_contact.html')?>
-</div> -->
-
-<!-- <div id="add-contact-div" class="modify-div"/>
-<div class="center-div">
-<?php  include('./components/add_contact/add_contact.html')?>
-</div> -->
 
 <div id="contact-div">
 <div id="something"></div>
