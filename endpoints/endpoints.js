@@ -328,7 +328,6 @@ function hideAddContact()
 }
 function addContact()
 {
-    
     hideAddContact();
     var firstName = "vic";
     var lastName = "last";
