@@ -117,7 +117,7 @@ input:-webkit-autofill:active
     font-size: 16px;
     line-height: 150%;
     color:white;
-    background: #FF7B49;
+    background: #FFC93C;
     border-radius: 5px;
 }
 input:focus
@@ -141,6 +141,8 @@ input:focus
     height: 20px;
     transition: all .2s;
     width: auto;
+    border: none;
+    background-color: transparent;
 }
 
 #exit:hover

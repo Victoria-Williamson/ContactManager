@@ -54,6 +54,7 @@ html, body
 
 
 
+
 #contact-header
 {
     background-color: white;
@@ -65,6 +66,12 @@ html, body
     align-items: center;
     justify-items: center;
     height: 70px;
+}
+#action-div
+{
+    top:0px;
+    position: absolute;
+    z-index: 2;
 }
 #actions
 {
@@ -166,6 +173,16 @@ hr
     justify-items: center; */
     background-color: transparent;
     /* backdrop-filter: blur(10px) */
+}
+button:hover
+{
+    transform: scale(1.1);
+    font-weight: bold;
+}
+button
+{
+    font-weight: bold;
+    transition: all .2s ease-in-out;
 }
 /* Scrollbar styles */
 ::-webkit-scrollbar {
