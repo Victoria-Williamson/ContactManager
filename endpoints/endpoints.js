@@ -240,14 +240,7 @@ function GetElementInsideContainer(event, childID) {
     }
     return elm;
 }
-function EditContact()
-{
 
-}
-function DelteContact()
-{
-
-}
 function showEditContact(event)
 {
     if (event.id !== "contact-card")
@@ -277,6 +270,7 @@ function showEditContact(event)
     parent.className = "modify-div";
 
     var inner = document.createElement("div");
+    inner.id = "add-contact-form";
     inner.className = 'center-div';
     inner.innerHTML = '<div id="card"><div id="contact-image-big"><text id="initials">' + initials.innerHTML + '</text></div><div class="form"><label for="first-add">First Name</label><input id="first-add" type="text" value="' + name_seperated[0] + '" placeholder="John" name="name"></div><div class="form"><label for="last-add">Last Name</label><input id="last-add" type="text" value="' + name_seperated[1] + '" placeholder="Doe" name="name"></div><div class="form"><label for="number-add">Phone Number</label><input id="number-add type="text" value="' + phone + '" placeholder="555-555-5555" name="number"></div><div class="form"><label for="email-add">Email</label><input id="email-add" type="text" value="' + email + '" placeholder="email@domain.com" name="email"></div><div id="modify-buttons"><button id="save" onclick="editContact()"> Save </button><button id="delete" onclick="deleteContact()"> Delete </button></div><button id="exit" onclick="hideEditContact()"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="#919191"/></svg></div></div>';
 
@@ -295,6 +289,21 @@ function deleteContact()
     if (curr_card === null || curr_info === null || curr_image === null)
         return;
     curr_card.style.display = "none";
+    curr_card = null;
+    curr_image = null;
+    curr_info = null;
+    hideEditContact();
+}
+
+function editContact()
+{
+    if (curr_card === null || curr_info === null || curr_image === null)
+        return;
+    var form = document.getElementById('add-contact-form');
+   
+    // Get the values 
+    
+    // Reset the Global values
     curr_card = null;
     curr_image = null;
     curr_info = null;
