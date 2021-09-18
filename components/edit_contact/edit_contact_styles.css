@@ -65,6 +65,13 @@ label
     font-size: 14px;
     line-height: 150%;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
 
 input
 {
@@ -91,13 +98,20 @@ border-radius: 4px;
     border: none;
     height: 40px;
     font-weight: 00;
-font-size: 16px;
-line-height: 150%;
-color:white;
+    font-size: 16px;
+    line-height: 150%;
+    color:white;
     background: linear-gradient(90deg, #FF6F3C 18.03%, #FF9A3C 59.03%, #FFC93C 106.38%);
     border-radius: 5px;
 }
 
+#modify-buttons
+{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 20px;
+}
 #delete
 {
     border: none;
