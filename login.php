@@ -4,14 +4,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Necessary Style Sheets -->
-        <script src="/endpoints/endpoints.js"></script>
+        <script src="/js/endpoints.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Maven+Pro:wght@500;600;700;800;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/components/create_account_mobile/create_account_mobile.css">
         <link rel="stylesheet" href="/components/sign_in_mobile/sign_in_mobile.css">
         <link rel="stylesheet" href="/components/user_auth_desktop/user_auth_desktop.css">
-        <link rel="stylesheet" href="./pages/login_page/styles.css">
+        <link rel="stylesheet" href="/css/login.css">
         <title>Welcome to Contact Manager</title>
     </head>
     <body>
@@ -68,7 +68,7 @@
             <label for="number">Phone Number</label>
             <input id="number-signup-desktop" type="text" value="" placeholder="555-555-5555" name="number">
           </div>
-            <button id="sign-up" onclick="doSignUp('signup-desktop')"> Sign Up </button>  
+            <button id="sign-up" onclick='doSignUp("signup-desktop")'> Sign Up </button>  
             
             
     </div>
