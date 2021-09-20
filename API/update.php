@@ -15,7 +15,7 @@
 	$email = $inData["Email"];
 
     // Establish connection with mysqli(host, username, password, database).
-	$conn = db_connection();
+	$conn = db_connect();
 
 	if ($conn->connect_error)
     {

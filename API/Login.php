@@ -1,7 +1,8 @@
 <?php
 
-	// Get the helper functions
 	include './util.php';
+	// database password: projecT1a
+	// digital ocean SQL password : e74343b24d94358052af1404d4c50d7237a7aa51effd4540
 	
     // Take JSON response and convert it to a PHP variable.
 	$inData = getRequestInfo();
@@ -13,7 +14,6 @@
 
     // Establish connection with mysqli(host, username, password, database).
     $conn = db_connect();
-
     // Check connection response.
 	if ($conn->connect_error)
 	{
@@ -50,4 +50,5 @@
 		$stmt->close();
 		$conn->close();
 	}
+
 ?>
