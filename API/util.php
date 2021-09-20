@@ -4,7 +4,7 @@
     // Establish connection with mysqli(host, username, password, database).
     function db_connect()
     {
-        return new mysqli("localhost", "root", "password", "COP4331");
+        return new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
     }
 
 	// Take JSON response and convert it to a PHP variable.
