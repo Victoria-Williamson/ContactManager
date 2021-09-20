@@ -1,6 +1,6 @@
-//var url = "http://localhost:8000/";
+var url = "http://localhost:8002/";
 //var apiURL = "http://localhost:8000/APIs/CRUD";
-var url = "https://stirup.com/";
+// var url = "https://stirup.com/";
 var apiURL = "https://stirup.co/API"
 
 var info = "";
@@ -49,7 +49,7 @@ function doLogin(ext)
 //	var tmp = {login:login,password:hash};
 	var jsonPayload = JSON.stringify( tmp );
 	
-	var loc = url + "APIs/CRUD/login.php";
+	var loc = url + "API/Login.php";
     console.log(loc);
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", loc, true);

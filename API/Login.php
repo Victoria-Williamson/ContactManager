@@ -1,6 +1,9 @@
 // Login a user with password and username.
 <?php
 
+	// Get the helper functions
+	include 'util.php';
+	
     // Take JSON response and convert it to a PHP variable.
 	$inData = getRequestInfo();
 
