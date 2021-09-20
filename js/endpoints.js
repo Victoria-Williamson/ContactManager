@@ -1,6 +1,7 @@
-var url = "http://localhost:8000/";
-var apiURL = "http://localhost:8000/APIs/CRUD";
-// var url = "http://stirup.com/";
+//var url = "http://localhost:8000/";
+//var apiURL = "http://localhost:8000/APIs/CRUD";
+var url = "https://stirup.com/";
+var apiURL = "https://stirup.co/API"
 
 var info = "";
 var userId = 0;
@@ -15,13 +16,14 @@ function needAccount()
 {
     console.log(url + "signup_page.php");
     document.location = url + "signup_page.php";
-    
 }
+
 //    Create Account UI -> Sign In UI
 function hasAccount()
 {
     document.location = url + "login_page.php";
 }
+
 // Allows the User to Log into their account 
 // Allows the User to Log into their account 
 function doLogin(ext)

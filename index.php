@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="/components/create_account_mobile/create_account_mobile.css">
         <link rel="stylesheet" href="/components/sign_in_mobile/sign_in_mobile.css">
         <link rel="stylesheet" href="/components/user_auth_desktop/user_auth_desktop.css">
-        <link rel="stylesheet" href="./pages/login_page/styles.css">
+        <link rel="stylesheet" href="/css/login.css">
         <title>Welcome to Contact Manager</title>
     </head>
     <body>
