@@ -37,7 +37,7 @@ input
 body
 {
     background-color:white;
-    background-image: url('./bg.svg');
+    background-image: url('/images/bg.svg');
     background-repeat: repeat;
     background-position: center;
     background-size: cover;
