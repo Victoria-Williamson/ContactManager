@@ -14,14 +14,14 @@ var lastName = "";
 //    Sign In UI -> Create Account UI
 function needAccount()
 {
-    console.log(url + "signup_page.php");
-    document.location = url + "signup_page.php";
+    console.log(url + "signup.php");
+    document.location = url + "signup.php";
 }
 
 //    Create Account UI -> Sign In UI
 function hasAccount()
 {
-    document.location = url + "login_page.php";
+    document.location = url + "login.php";
 }
 
 // Allows the User to Log into their account 
@@ -58,6 +58,7 @@ function doLogin(ext)
 	{
 		xhr.onreadystatechange = function() 
 		{
+            console.log("Making API Request");
 			if (this.readyState == 4 && this.status == 200) 
 			{
                 console.log(xhr.responseText);
@@ -66,10 +67,12 @@ function doLogin(ext)
                 console.log(userId)
 				if( userId < 1 || userId === undefined)
 				{	
+                 
+                    console.log("Finish API Request");
                     alert.innerHTML="User / Password Information Incorrect";
 					return;
 				}
-		
+                console.log("Finish API Request");
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
 
@@ -78,7 +81,7 @@ function doLogin(ext)
         // If the credentials are correct allow the user to be logged in
         // and access the contact page
         console.log("User: " + login + "Found, Logging in...");
-        document.location = url + "contact_page.php";
+        document.location = url + "contact.php";
                 }
             };
             xhr.send(jsonPayload);
@@ -196,7 +199,7 @@ function doSignUp(ext)
         // If the credentials are correct allow the user to be logged in
         // and access the contact page
         console.log("User: " + login + "Found, Logging in...");
-        document.location = url + "contact_page.php";
+        document.location = url + "contact.php";
                 }
             };
             xhr.send(jsonPayload);

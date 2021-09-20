@@ -1,6 +1,9 @@
 // Create a new contact.
 <?php
 
+    // Get the helper functions
+    include './util.php';
+
     // Take the JSON response and convert it to PHP variable.
 	$inData = getRequestInfo();
 

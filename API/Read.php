@@ -1,6 +1,8 @@
 // Search for contacts.
 <?php
-    include 'util.php';
+   
+   // Get the helper functions
+   include './util.php';
 
     // Take JSON response and convert it to a PHP variable.
     $inData = getRequestInfo();
