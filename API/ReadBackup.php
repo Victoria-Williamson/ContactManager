@@ -1,6 +1,6 @@
 // Retrieve a contact from MySQL.
 <?php
-    
+    // updated
     // Get the helper functions
     include './util.php';
 
