@@ -173,7 +173,10 @@ function checkContactPage()
                         return;
                     }
             
-                   
+                   for (user in jsonObject)
+                   {
+                       addContact(user.firstName, user.lastName, user.email,user.phone)
+                   }
     
                     console.log("We need to add the contacts")
           
@@ -459,16 +462,17 @@ function hideAddContact()
     action.innerHTML = "";
     action.style.display = "none";
 }
-function addContact()
+function addContact(firstName, lastName,phoneNumber,userEmail)
 {
     
     console.log(document.getElementById("add-contact-div"));
 
     hideAddContact();
-    var firstName = "vic";
-    var lastName = "last";
-    var phoneNumber = "555555555";
-    var userEmail = "email@domain.com";
+    phoneNumber = phoneNumber.replace('-',"");
+    // var firstName = "vic";
+    // var lastName = "last";
+    // var phoneNumber = "555555555";
+    // var userEmail = "email@domain.com";
    
     
     var card = document.createElement('div');
