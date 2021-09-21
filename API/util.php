@@ -1,4 +1,3 @@
-// Contains utility functions used by https://stirup.co
 <?php
 
     // Establish connection with mysqli(host, username, password, database).
