@@ -32,7 +32,7 @@
 		if ($result = $conn->query($stmt) != TRUE)
         {
             // Query failed.
-			returnWithErrorUser($conn->error);
+			returnWithUserError($conn->error);
 		}
         else
         {
