@@ -2,7 +2,7 @@ var url = "https://stirup.co/";
 var apiURL = "https://stirup.co/API"
 
 var info = "";
-var userId = 0;
+var userId = -1;
 var curr_card;
 var curr_image;
 var curr_info;
@@ -132,10 +132,64 @@ function readCookie()
 	}
 	else
 	{
-		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+		// document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
 }
 
+function checkContactPage()
+{
+    if (userId < 1 || userId === undefined)
+    {
+        console.log("User has not signed in");
+        hasAccount();
+    }
+    else
+    {
+       console.log("Loading Contacts for the user");
+
+        // Check that the login credentials are correct
+    var tmp = {uid: userId,};
+    //	var tmp = {login:login,password:hash};
+        var jsonPayload = JSON.stringify(tmp);
+        console.log(jsonPayload);
+        
+        var loc = url + "API/Read.php";
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", loc, true);
+        xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+        try
+        {
+            xhr.onreadystatechange = function() 
+            {
+                console.log("Making API Request");
+                if (this.readyState == 4 && this.status == 200) 
+                {
+                    
+                    var jsonObject = JSON.parse( xhr.responseText );
+                    console.log("response", jsonObject);
+                   
+                    
+                    if( jsonObject === undefined || jsonObject === null)
+                    {	
+                        // alert.innerHTML = "Cannot find a match for the given password or username";
+                        console.log("No Contacts Found")
+                        return;
+                    }
+            
+                   
+    
+                    console.log("We need to add the contacts")
+          
+                    }
+                };
+                xhr.send(jsonPayload);
+            }
+            catch(err)
+            {
+                console.log(err.message);
+            }
+    }
+}
 
 function doSignUp(ext)
 {

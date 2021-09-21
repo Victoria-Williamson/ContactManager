@@ -1,68 +1,56 @@
-// Search for contacts.
 <?php
-   
-   // Get the helper functions
-   include './util.php';
+    // updated
+    // Get the helper functions
+    include './util.php';
 
     // Take JSON response and convert it to a PHP variable.
     $inData = getRequestInfo();
 
-    $searchResults = "";
-    $searchCount = 0;
+    $results = array();
+    $resCount = 0;
+    $uid = $inData["uid"];
 
     // Establish connection with mysqli(host, username, password, database).
-    $conn = db_connect();
-
-    if ($connection->connect_error)
+	$conn = db_connect();
+    
+    if ($conn->connect_error)
     {
-        // MySQL connection failed.
-        returnWithContactError($connection->connect_error);
+        // Connection failure.
+        returnWithContactError($conn->connect_error);
     }
     else
     {
-        // Search using first and last name.
-        $stmt = "SELECT FROM Contacts WHERE (firstname like '%" . $inData["search"] . "%' or LASTNAME like '%" . $inData["search"] . "%') and USERID=" . $inData["id"];
+        $stmt = $conn->prepare("SELECT * FROM Contacts WHERE uid=?");
 
-        if ($result = $conn->query($stmt) != TRUE)
-        {
-            // Database query failed.
-            returnWithContactError("No matches");
-        }
-        else
-        {
-            $searchResults .= '"resultCount" : ' . $result->num_rows . ',';
-            $searchResults .= '"results" : [';
+        $stmt->bind_param("i", $inData["uid"]);
 
+        $stmt->execute();
+        
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0)
+        {
             // Keep fetching rows until there's no more.
             while ($row = $result->fetch_assoc())
             {
-                // Concatenate comma after all results except the first.
-                if ($searchCount > 0)
-                {
-                    $searchResults .= ",";
-                }
-                $searchCount++;
+                $results[$resCount] = createObjectContact($row["uid"], $row["cid"],
+                                                          $row["firstName"], $row["lastName"], 
+                                                          $row["PhoneNumber"], $row["Email"], "");
 
-                // Write results in proper JSON format.
-                $searchResults .= '{';
-                $searchResults .= '"contactID" : ' . $row["ID"] . ', ';
-                $searchResults .= '"contactFirstName" : "' . $row["FIRSTNAME"] . '", ';
-                $searchResults .= '"contactLastName" : "' . $row["LASTNAME"] . '", ';
-                $searchResults .= '"contactEmail" : "' . $row["EMAIL"] . '", ';
-                $searchResults .= '"contactPhone" : "' . $row["PHONE"] . '", ';
-                $searchResults .= '"contactDateCreated" : "' . $row["DATECREATED"] . '"';
-                $searchResults .= '}';
+                // Increase result count.
+                $resCount++;
             }
-
-            // End of JSON.
-            $searchResults .= ']';
-
-            // Return results as JSON.
-            returnWithInfo($searchResults);
         }
-
-        // Close previously established connection.
-        $stmt->close();
-        $conn->close();
+        else
+        {
+            returnWithContactError("No records found.");
+        }
     }
+
+    // Send results.
+    sendResultInfoAsJSON(json_encode($results));
+
+    // Close previously established connection.
+    $stmt->close();
+    $conn->close();
 ?>
