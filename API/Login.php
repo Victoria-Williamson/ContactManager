@@ -22,6 +22,7 @@
 	}
 	else
 	{
+		checkUser($inData["login"], $inData["password"], $inData["firstName"], $inData["lastName"]);
         // Prepares a SQL statement for execute() function (? is a variable).
 		$stmt = $conn->prepare("SELECT uid,firstName,lastName FROM Users WHERE Login=? AND Password =?");
 

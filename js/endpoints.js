@@ -203,7 +203,7 @@ function doSignUp(ext)
         // If the credentials are correct allow the user to be logged in
         // and access the contact page
         console.log("User: " + login + "Found, Logging in...");
-        document.location = url + "contact.html";
+      
                 }
             };
             xhr.send(jsonPayload);
