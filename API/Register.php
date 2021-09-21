@@ -5,7 +5,7 @@
 
     // Take JSON response and convert it to a PHP variable.
 	$inData = getRequestInfo();
-   
+    returnWithUserError($inData);
      // Initialize empty variables.
 	$uid = 0;
 	$firstName = "";
