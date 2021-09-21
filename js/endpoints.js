@@ -67,6 +67,9 @@ function doLogin(ext)
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
                 userId = jsonObject.uid;
+
+                
+                
 				
                 if( userId < 1 || userId === undefined)
 				{	
@@ -78,7 +81,7 @@ function doLogin(ext)
                 console.log("Finished API Request");
                 
 
-                // saveCookie();
+                saveCookie();
         
         // If the credentials are correct allow the user to be logged in
         // and access the contact page
@@ -140,8 +143,7 @@ function checkContactPage()
 {
     
     
-       console.log("Loading Contacts for the user");
-
+      readCookie();
         // Check that the login credentials are correct
     var tmp = {uid: userId,};
     //	var tmp = {login:login,password:hash};
