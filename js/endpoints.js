@@ -59,27 +59,28 @@ function doLogin(ext)
             console.log("Making API Request");
 			if (this.readyState == 4 && this.status == 200) 
 			{
-                console.log(xhr.responseText);
+                
 				var jsonObject = JSON.parse(xhr.responseText);
-				userId = jsonObject.id;
+				console.log(jsonObject);
                
 				if( userId < 1 || userId === undefined)
 				{	
                  
-                    console.log("Finish API Request");
+                    console.log("Problem with User ID for API Request");
                     // alert.innerHTML="User / Password Information Incorrect";
 					return;
 				}
-                console.log("Finish API Request");
+                console.log("Finished API Request");
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
+                userId = jsonObject.id;
 
-                saveCookie();
+                // saveCookie();
         
         // If the credentials are correct allow the user to be logged in
         // and access the contact page
         console.log("User: " + login + "Found, Logging in...");
-        document.location = url + "contact.php";
+        document.location = url + "contact.html";
                 }
             };
             xhr.send(jsonPayload);
