@@ -28,8 +28,8 @@ function hasAccount()
 // Allows the User to Log into their account 
 function doLogin(ext)
 {
-    var alert = document.getElementById("alert-" +ext);
-    alert.innerHTML="";
+    // var alert = document.getElementById("alert-" +ext);
+    // alert.innerHTML="";
     
     // Reset all variables to default setting 
     userId = 0;
@@ -69,7 +69,7 @@ function doLogin(ext)
 				{	
                  
                     console.log("Finish API Request");
-                    alert.innerHTML="User / Password Information Incorrect";
+                    // alert.innerHTML="User / Password Information Incorrect";
 					return;
 				}
                 console.log("Finish API Request");
@@ -137,8 +137,8 @@ function readCookie()
 
 function doSignUp(ext)
 {
-    var alert = document.getElementById("alert-" +ext);
-    alert.innerHTML="";
+    // var alert = document.getElementById("alert-" +ext);
+    // alert.innerHTML="";
     // Get all the neccessary values
     
     var firstName = document.getElementById("firstname-"+ ext).value;
@@ -187,7 +187,7 @@ function doSignUp(ext)
                 console.log("id",userId)
 				if( userId < 1 || userId === undefined)
 				{	
-                    alert.innerHTML = "Cannot find a match for the given password or username";
+                    // alert.innerHTML = "Cannot find a match for the given password or username";
                     console.log("User / Password Information Incorrect")
 					return;
 				}

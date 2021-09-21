@@ -58,7 +58,7 @@
             <label for="number">Phone Number</label>
             <input id="number-desktop" type="text" value="" placeholder="555-555-5555" name="number">
           </div>
-            <button id="sign-up"> Sign Up </button>
+            <button id="sign-up" onclick="doSignUp('desktop')"> Sign Up </button>
             
             
     </div>
@@ -72,21 +72,21 @@
         <text class="header"> Create An Account</text>
         <div class="form">
             <label for="email">Email</label>
-            <input id="email" type="text" value="" placeholder="email@domain.com" name="email">
+            <input id="email-mobile" type="text" value="" placeholder="email@domain.com" name="email">
           </div>
           <div class="form">
             <label for="password">Password</label>
-            <input id="password" type="text" value="" placeholder="Password" name="name">
+            <input id="password-mobile" type="text" value="" placeholder="Password" name="name">
           </div>
           <div class="form">
             <label for="password">Confirm Password</label>
-            <input id="password" type="text" value="" placeholder="Password" name="password">
+            <input id="password-mobile" type="text" value="" placeholder="Password" name="password">
           </div>
           <div class="form">
             <label for="number">Phone Number</label>
-            <input id="number" type="text" value="" placeholder="555-555-5555" name="number">
+            <input id="number-mobile" type="text" value="" placeholder="555-555-5555" name="number">
           </div>
-            <button id="sign-up-mobile"> Sign Up </button>
+            <button id="sign-up-mobile" onclick="doSignUp('mobile')"> Sign Up </button>
             <button onclick="hasAccount()"><text > Have an account? </text>
               <text id="switch" > Sign in now  </button>
 </div>  
