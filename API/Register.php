@@ -28,29 +28,23 @@
 	}
     else
     {
-        $firstName = $inData["firstName"];
-        $lastName = $inData["lastName"];
-        $password = $inData["password"];
-        $login = $inData["login"];
-        
-        if ($inData['firstName'] == NULL)
-        {
-            returnWithUserError("Data not being read");
-        }
         // SQL statment preparation.
-		$stmt = "INSERT into Users (firstName, lastName, login, password) VALUES ('" . $firstName . "', '". $lastName . "', '" . $login . "', '" . $password . "')";
+		$stmt = $conn->prepare("INSERT into Users (firstName, lastName, login, password) VALUES (?, ?, ?, ?)");
 
-        // Query for the statement.
+        $stmt->bind_param("ssss",$inData["firstName"], $inData["lastName"],$inData["password"],$inData["login"]);
+
+        $stmt->execute();
+    
         
-		if ($result = $conn->query($stmt) != TRUE)
+		if ($stmt->execute())
         {
-            // Query failed.
-			returnWithUserError($conn->error);
+            $uid = $stmt->insert_id;
+			returnWithUserInfo($uid, $firstName, $lastName, "");
+			
 		}
         else
         {
-			$uid = $conn->insert_id;
-			returnWithUserInfo($uid, $firstName, $lastName, "");
+			returnWithUserError($conn->error);
 		}
 	}
 
