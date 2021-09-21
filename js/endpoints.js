@@ -178,7 +178,7 @@ function checkContactPage()
                        var user = jsonObject[0];
                        console.log(user);
                        console.log(user.firstName);
-                       addContact(user.firstName, user.lastName, user.email,user.phone)
+                       addContact(user.firstName, user.lastName, user.phone,user.email,user.uid);
                    }
     
                     console.log("We need to add the contacts")
@@ -310,6 +310,44 @@ function showEditContact(event)
 {
     if (event.id !== "contact-card")
         return;
+    
+    var card_id = event.className.replace('user','');
+    var tmp = {uid: card_id,};
+    //	var tmp = {login:login,password:hash};
+        var jsonPayload = JSON.stringify(tmp);
+        console.log(jsonPayload);
+        
+        var loc = url + "API/Delete.php";
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", loc, true);
+        xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+        try
+        {
+            xhr.onreadystatechange = function() 
+            {
+                console.log("Making API Request");
+                if (this.readyState == 4 && this.status == 200) 
+                {
+                    
+                    var jsonObject = JSON.parse( xhr.responseText );
+                    
+                    if(jsonObject.error.localeCompare("Contact not found.") === 0)
+                    {
+                        console.log(jsonObject.error);
+                        return;
+                    }
+
+    
+                    console.log("Removing the Contact")
+          
+                    }
+                };
+                xhr.send(jsonPayload);
+            }
+            catch(err)
+            {
+                console.log(err.message);
+            }
     console.log(GetElementInsideContainer(event, "contact-image"));
     console.log("tst",document.getElementsByClassName(event.className));
 
@@ -465,7 +503,7 @@ function hideAddContact()
     action.innerHTML = "";
     action.style.display = "none";
 }
-function addContact(firstName, lastName,phoneNumber,userEmail)
+function addContact(firstName, lastName,phoneNumber,userEmail,uid)
 {
     
     console.log(document.getElementById("add-contact-div"));
@@ -487,7 +525,7 @@ function addContact(firstName, lastName,phoneNumber,userEmail)
     }
     var cardImage = document.createElement('div');
     cardImage.id = "contact-image";
-    cardImage.className = "contact-" + phoneNumber;
+    cardImage.className = "user" + uid
 
     var initials = document.createElement('text');
     initials.id = "initials";

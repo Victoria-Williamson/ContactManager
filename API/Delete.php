@@ -1,4 +1,3 @@
-// Delete a contact from the MySQL database.
 <?php
 
    // Get the helper functions
