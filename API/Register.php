@@ -5,17 +5,21 @@
 
     // Take JSON response and convert it to a PHP variable.
 	$inData = getRequestInfo();
+   
+     // Initialize empty variables.
+	$uid = 0;
+	$firstName = "";
+	$lastName = "";
+    $password = "";
+    $login = "";
 
-    // Check if user values are valid.
-	checkUser($inData["login"], $inData["password"], $inData["firstName"], $inData["lastName"]);
-
-	$firstName = $inData["firstName"];
-	$lastName = $inData["lastName"];
-	$password = $inData["password"];
-    $login = $inData["login"];
+   
 
     // Establish connection with mysqli(host, username, password, database).
 	$conn = db_connect();
+
+     // Check if user values are valid.
+	checkUser($inData["login"], $inData["password"], $inData["firstName"], $inData["lastName"]);
 
 	if ($conn->connect_error)
     {
@@ -24,10 +28,16 @@
 	}
     else
     {
+        $firstName = $inData["firstName"];
+        $lastName = $inData["lastName"];
+        $password = $inData["password"];
+        $login = $inData["login"];
+        
         // SQL statment preparation.
 		$stmt = "INSERT into Users (firstName, lastName, login, password) VALUES ('" . $firstName . "', '". $lastName . "', '" . $login . "', '" . $password . "')";
 
         // Query for the statement.
+        
 		if ($result = $conn->query($stmt) != TRUE)
         {
             // Query failed.
@@ -35,7 +45,6 @@
 		}
         else
         {
-            // Query success.
 			$uid = $conn->insert_id;
 			returnWithUserInfo($uid, $firstName, $lastName, "");
 		}

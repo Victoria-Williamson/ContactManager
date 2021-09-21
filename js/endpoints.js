@@ -169,6 +169,7 @@ function doSignUp(ext)
     var tmp = {firstName: firstName, lastName: lastName, password:password,login: login};
 //	var tmp = {login:login,password:hash};
 	var jsonPayload = JSON.stringify(tmp);
+    console.log(jsonPayload);
 	
 	var loc = url + "API/Register.php";
 	var xhr = new XMLHttpRequest();
