@@ -21,27 +21,28 @@
     else
     {
         // Prepares a SQL statement for execute() function (? is a variable).
-        $stmt = $conn->prepare("DELETE FROM Contacts WHERE uid=?");
-
-        // Substitute variables for each (?).
-        $stmt->bind_param("s", $inData["uid"]);
-
-        // Execute the prepared query.
-        $stmt->execute();
-
-        // Data fetched from database to PHP.
-        $result = $stmt->get_result();
-
-        if ($result = $conn->query($stmt) != TRUE)
+        try
         {
-			returnWithContactError("Contact not found.");
-		}
-        else
-        {
+            $stmt = $conn->prepare("DELETE FROM Contacts WHERE uid =?");
+
+            // Substitute variables for each (?).
+            $stmt->bind_param("s", $inData["uid"]);
+    
+            // Execute the prepared query.
+            $stmt->execute();
+    
+            // Data fetched from database to PHP.
+            $result = $stmt->get_result();
+
             returnWithContactError("Contact deleted.");
+        } catch (PDOException $e)
+        {
+            returnWithContactError("Contact not found.");
         }
+        
 
         // Close previously established connection.
+        $stmt->close();
         $conn->close();
     }
 ?>
