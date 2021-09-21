@@ -142,20 +142,18 @@ function doSignUp(ext)
     // alert.innerHTML="";
     // Get all the neccessary values
     
-    var firstName = document.getElementById("username-"+ ext).value;
-   
-    var phone = document.getElementById("number-"+ ext).value;
+    var firstName = document.getElementById("firstName-"+ ext).value;
+    var lastName = document.getElementById("lastName-"+ ext).value;
+    var login = document.getElementById("username-"+ext).value;
     var password = document.getElementById("password-" + ext).value;
-    var password_confirm = document.getElementById("password-confirm-"+ext);
-    var number = document.getElementById("number-" + ext).value;
+    var password_confirm = document.getElementById("password-check-"+ext);
+    console.log(firstName,login,password);
     
-    
-    document.getElementById("firstname-" + ext).innerHTML = "";
-    document.getElementById("lastname-" + ext).innerHTML = "";
-    document.getElementById("username-" + ext).innerHTML = "";
+    document.getElementById("firstName-"+ ext).innerHTML = "";
+    document.getElementById("lastName-"+ ext).innerHTML = "";
+    document.getElementById("username-"+ext).innerHTML = "";
     document.getElementById("password-" + ext).innerHTML = "";
-    document.getElementById("password-confirm-" + ext).innerHTML = "";
-    document.getElementById("number-" + ext).innerHTML = "";
+    document.getElementById("password-check-"+ext).innerHTML = "";
 
     // if (password_confirm != password)
     // {
@@ -167,11 +165,11 @@ function doSignUp(ext)
     // Check that the login credentials are correct
     
     // Check that the login credentials are correct
-    var tmp = {firstName: firstName, lastName: lastName, login: username,password:password};
+    var tmp = {firstName: firstName, lastName: lastName, login: login ,password:password};
 //	var tmp = {login:login,password:hash};
 	var jsonPayload = JSON.stringify( tmp );
 	
-	var loc = url + "APIs/CRUD/register.php";
+	var loc = url + "API/Register.php";
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", loc, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -185,7 +183,6 @@ function doSignUp(ext)
                 info = jsonObject;
                 console.log("response", jsonObject);
 				userId = jsonObject.uid;
-                console.log("id",userId)
 				if( userId < 1 || userId === undefined)
 				{	
                     // alert.innerHTML = "Cannot find a match for the given password or username";
