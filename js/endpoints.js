@@ -61,8 +61,12 @@ function doLogin(ext)
 			{
                 
 				var jsonObject = JSON.parse(xhr.responseText);
-				console.log(jsonObject);
-               
+				
+                console.log("API call Return:\t", jsonObject);
+                
+                firstName = jsonObject.firstName;
+                lastName = jsonObject.lastName;
+                userId = jsonObject.uid;
 				if( userId < 1 || userId === undefined)
 				{	
                  
@@ -71,9 +75,7 @@ function doLogin(ext)
 					return;
 				}
                 console.log("Finished API Request");
-                firstName = jsonObject.firstName;
-                lastName = jsonObject.lastName;
-                userId = jsonObject.id;
+                
 
                 // saveCookie();
         
@@ -182,7 +184,7 @@ function doSignUp(ext)
 				var jsonObject = JSON.parse( xhr.responseText );
                 info = jsonObject;
                 console.log("response", jsonObject);
-				userId = jsonObject.id;
+				userId = jsonObject.uid;
                 console.log("id",userId)
 				if( userId < 1 || userId === undefined)
 				{	
