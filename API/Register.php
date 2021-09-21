@@ -5,7 +5,7 @@
 
     // Take JSON response and convert it to a PHP variable.
 	$inData = getRequestInfo();
-    returnWithUserError($inData);
+    
      // Initialize empty variables.
 	$uid = 0;
 	$firstName = "";
@@ -33,9 +33,9 @@
         $password = $inData["password"];
         $login = $inData["login"];
         
-        if ($firstName == NULL)
+        if ($inData['firstName'] == NULL)
         {
-            returnWithUserError("problems reading user data");
+            returnWithUserError("Data not being read");
         }
         // SQL statment preparation.
 		$stmt = "INSERT into Users (firstName, lastName, login, password) VALUES ('" . $firstName . "', '". $lastName . "', '" . $login . "', '" . $password . "')";
