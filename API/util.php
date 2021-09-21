@@ -70,6 +70,7 @@
     {
         $obj = new stdClass();
 		$obj->uid = $uid;
+        $obj->cid = $cid;
 		$obj->firstName = $firstName;
 		$obj->lastName = $lastName;
 		$obj->phone = $phone;

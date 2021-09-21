@@ -33,9 +33,7 @@
             // Keep fetching rows until there's no more.
             while ($row = $result->fetch_assoc())
             {
-                $results[$resCount] = createObjectContact($row["uid"], $row["cid"],
-                                                          $row["firstName"], $row["lastName"], 
-                                                          $row["PhoneNumber"], $row["Email"], "");
+                $results[$resCount] = createObjectContact($row["uid"], $row["cid"],$row["firstName"], $row["lastName"], $row["PhoneNumber"], $row["Email"], "");
 
                 // Increase result count.
                 $resCount++;

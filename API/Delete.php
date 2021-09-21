@@ -21,7 +21,7 @@
     else
     {
         // Prepares a SQL statement for execute() function (? is a variable).
-        $sql = "DELETE FROM Contacts WHERE uid=" .$inData["uid"]; 
+        $sql = "DELETE FROM Contacts WHERE cid=" .$inData["cid"]; 
         $stmt = $conn->prepare($sql);
 
         if ($conn->query($sql) === TRUE) {

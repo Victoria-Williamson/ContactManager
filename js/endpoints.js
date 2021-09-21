@@ -179,7 +179,7 @@ function checkContactPage()
                        var user = jsonObject[0];
                        console.log(user);
                        console.log(user.firstName);
-                       addContact(user.firstName, user.lastName, user.phone,user.email,user.uid);
+                       addContact(user.firstName, user.lastName, user.phone,user.email,user.cid);
                    }
     
                     console.log("We need to add the contacts")
@@ -508,7 +508,7 @@ function hideAddContact()
     action.innerHTML = "";
     action.style.display = "none";
 }
-function addContact(firstName, lastName,phoneNumber,userEmail,uid)
+function addContact(firstName, lastName,phoneNumber,userEmail,cid)
 {
     
     console.log(document.getElementById("add-contact-div"));
@@ -523,6 +523,7 @@ function addContact(firstName, lastName,phoneNumber,userEmail,uid)
     
     var card = document.createElement('div');
     card.id = "contact-card";
+    card.className = "user" + cid
     card.onclick = function (e)
     {
         console.log(e);
@@ -530,7 +531,7 @@ function addContact(firstName, lastName,phoneNumber,userEmail,uid)
     }
     var cardImage = document.createElement('div');
     cardImage.id = "contact-image";
-    cardImage.className = "user" + uid
+    
 
     var initials = document.createElement('text');
     initials.id = "initials";
