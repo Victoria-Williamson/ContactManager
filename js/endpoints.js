@@ -12,14 +12,14 @@ var lastName = "";
 //    Sign In UI -> Create Account UI
 function needAccount()
 {
-    console.log(url + "signup.php");
-    document.location = url + "signup.php";
+    console.log(url + "signup.html");
+    document.location = url + "signup.html";
 }
 
 //    Create Account UI -> Sign In UI
 function hasAccount()
 {
-    document.location = url + "login.php";
+    document.location = url + "login.html";
 }
 
 // Allows the User to Log into their account 
@@ -142,9 +142,9 @@ function doSignUp(ext)
     // alert.innerHTML="";
     // Get all the neccessary values
     
-    var firstName = document.getElementById("firstname-"+ ext).value;
-    var lastName = document.getElementById("lastname-" + ext).value;
-    var username = document.getElementById("username-"+ ext).value;
+    var firstName = document.getElementById("username-"+ ext).value;
+   
+    var phone = document.getElementById("number-"+ ext).value;
     var password = document.getElementById("password-" + ext).value;
     var password_confirm = document.getElementById("password-confirm-"+ext);
     var number = document.getElementById("number-" + ext).value;
@@ -200,7 +200,7 @@ function doSignUp(ext)
         // If the credentials are correct allow the user to be logged in
         // and access the contact page
         console.log("User: " + login + "Found, Logging in...");
-        document.location = url + "contact.php";
+        document.location = url + "contact.html";
                 }
             };
             xhr.send(jsonPayload);
