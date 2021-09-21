@@ -359,7 +359,7 @@ function deleteContact()
     if (curr_card === null || curr_info === null || curr_image === null || card_id === null || card_id === undefined)
         return;
 
-        var tmp = {uid: card_id,};
+        var tmp = {cid: card_id,};
         //	var tmp = {login:login,password:hash};
             var jsonPayload = JSON.stringify(tmp);
             console.log(jsonPayload);
