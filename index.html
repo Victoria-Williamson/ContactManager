@@ -1,4 +1,3 @@
-
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -16,48 +15,60 @@
         <title>Welcome to Contact Manager</title>
     </head>
     <body>
-         <!-- Desktop user authentication UI breakpoint at 750px -->
-         <div id="auth-desktop">
+        <!-- Desktop user authentication UI breakpoint at 750px -->
+        <div id="auth-desktop">
         <div id="content">
             <div id="auth">
             <div id="user-auth-card">
-        <div id="card-sign-in">
+        <div id="card-sign-in" class="signin">
        
             <text class="header"> Sign In</text>
+            <div id="alert-sign-in-desktop" class="alert-msg">
+        </div>  
             <div class="form">
-                <label for="username-desktop">Email</label>
-                <input id="username-desktop" type="text" value="" placeholder="email@domain.com" name="email">
+                <label for="username">Email</label>
+                <input id="username-signin-desktop" type="text" value="" placeholder="email@domain.com" name="email">
               </div>
               <div class="form">
                 <label for="password">Password</label>
-                <input id="password-desktop" type="text" value="" placeholder="Password" name="name">
+                <input id="password-signin-desktop" type="text" value="" placeholder="Password" name="name">
               </div>
+              
               <div id="sign-in-btns">
-                <button id="sign-in" onclick='doLogin("desktop")'> Sign In </button>
+                <button id="sign-in" onclick='doLogin("signin-desktop")'> Sign In </button>
                
               </div>
             
     </div>
-
     <div id="card-sign-up">
-        <text class="header" style="color: white;"> Create An Account</text>
+    <text class="header" style="color: white;"> Create An Account</text>
+        <div id="alert-sign-up-desktop" class="alert-msg">
+        </div>  
         <div class="form">
-            <label for="email">Email</label>
-            <input id="username-desktop" type="text" value="" placeholder="email@domain.com" name="email">
+            <label for="firstname">Firstname</label>
+            <input id="firstname-signup-desktop" type="text" value="" placeholder="John" name="name">
+          </div>
+          <div class="form">
+            <label for="lastname">Email</label>
+            <input id="lastname-signup-desktop" type="text" value="" placeholder="Doe" name="lastname">
+          </div>
+        <div class="form">
+            <label for="username">Email</label>
+            <input id="username-signup-desktop" type="text" value="" placeholder="email@domain.com" name="email">
           </div>
           <div class="form">
             <label for="password">Password</label>
-            <input id="password-desktop" type="text" value="" placeholder="Password" name="name">
+            <input id="password-signup-desktop" type="text" value="" placeholder="Password" name="name">
           </div>
           <div class="form">
             <label for="password">Confirm Password</label>
-            <input id="password-check-desktop" type="text" value="" placeholder="Password" name="password">
+            <input id="password-confirm-signup-desktop" type="text" value="" placeholder="Password" name="password">
           </div>
           <div class="form">
             <label for="number">Phone Number</label>
-            <input id="number-desktop" type="text" value="" placeholder="555-555-5555" name="number">
+            <input id="number-signup-desktop" type="text" value="" placeholder="555-555-5555" name="number">
           </div>
-            <button id="sign-up" onclick='doSignUp("desktop")'> Sign Up </button>
+            <button id="sign-up" onclick='doSignUp("signup-desktop")'> Sign Up </button>  
             
             
     </div>
@@ -67,28 +78,35 @@
         </div>
     <!-- UI for mobile user authentication -->
     <div id="auth-mobile">
-<div id="card-sign-up-mobile">
-        <text class="header"> Create An Account</text>
-        <div class="form">
-            <label for="email">Email</label>
-            <input id="email" type="text" value="" placeholder="email@domain.com" name="email">
-          </div>
-          <div class="form">
-            <label for="password">Password</label>
-            <input id="password" type="text" value="" placeholder="Password" name="name">
-          </div>
-          <div class="form">
-            <label for="password">Confirm Password</label>
-            <input id="password" type="text" value="" placeholder="Password" name="password">
-          </div>
-          <div class="form">
-            <label for="number">Phone Number</label>
-            <input id="number" type="text" value="" placeholder="555-555-5555" name="number">
-          </div>
-            <button id="sign-up-mobile"> Sign Up </button>
-            <button onclick="hasAccount()"><text > Have an account? </text>
-              <text id="switch" > Sign in now  </button>
-</div>  
-</div>
+        <!-- UI for mobile user sign in -->
+        <div id="auth-mobile-signIn" style="display: block;">
+           
+        
+        <div id="card-sign-in-mobile" class="signin">
+        <text class="header"> Sign In</text>
+            <div id="alert-sign-in-mobile" class="alert-msg">
+        </div>  
+            <div class="form">
+                <label for="username">Email</label>
+                <input id="username-signin-mobile" type="text" value="" placeholder="email@domain.com" name="email">
+              </div>
+              <div class="form">
+                <label for="password">Password</label>
+                <input id="password-signin-mobile" type="text" value="" placeholder="Password" name="name">
+              </div>
+              
+              <div id="sign-in-btns">
+                <button id="sign-in" onclick='doLogin("signin-mobile")'> Submit </button>
+              
+              </div>
+       
+              <button onclick="needAccount()"><text > Need an account </text>
+              <text id="switch" > Sign up now  </button>
+    </div>
+        </div>
+    </div>
+   
+       
+       
     </body>
     </html>

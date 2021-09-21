@@ -29,8 +29,13 @@
     // Set up a JSON of the user info and print it to browser.
     function returnWithUserInfo( $uid, $firstName, $lastName, $error)
     {
-        $retValue = '{"uid":' . $uid . ',"firstName":"' . $firstName . ',"lastName":"' . $lastName . '","error":"' . $error . '"}';
-        sendResultInfoAsJson( $retValue );
+        $retValue = new stdClass();
+        $retValue->$firstName = $firstName;
+        $retValue->$lastName = $lastName;
+        $retValue->$uid = $uid;
+        $retValue->$error = $error;
+
+        sendResultInfoAsJson(json_encode($retValue));
     }
 
     // Set up a JSON of the search results and print it to browser.

@@ -60,9 +60,9 @@ function doLogin(ext)
 			if (this.readyState == 4 && this.status == 200) 
 			{
                 console.log(xhr.responseText);
-				var jsonObject = JSON.parse( xhr.responseText );
+				var jsonObject = JSON.parse(xhr.responseText);
 				userId = jsonObject.id;
-                console.log(userId)
+               
 				if( userId < 1 || userId === undefined)
 				{	
                  
