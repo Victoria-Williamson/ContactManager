@@ -138,13 +138,8 @@ function readCookie()
 
 function checkContactPage()
 {
-    if (userId < 0 || userId === undefined)
-    {
-        console.log("User has not signed in");
-        hasAccount();
-    }
-    else
-    {
+    
+    
        console.log("Loading Contacts for the user");
 
         // Check that the login credentials are correct
@@ -188,7 +183,6 @@ function checkContactPage()
             {
                 console.log(err.message);
             }
-    }
 }
 
 function doSignUp(ext)
