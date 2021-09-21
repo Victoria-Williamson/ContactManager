@@ -67,7 +67,8 @@ function doLogin(ext)
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
                 userId = jsonObject.uid;
-				if( userId < 1 || userId === undefined)
+				
+                if( userId < 1 || userId === undefined)
 				{	
                  
                     console.log("Problem with User ID for API Request");
@@ -77,7 +78,7 @@ function doLogin(ext)
                 console.log("Finished API Request");
                 
 
-                // saveCookie();
+                saveCookie();
         
         // If the credentials are correct allow the user to be logged in
         // and access the contact page
@@ -165,7 +166,7 @@ function doSignUp(ext)
     // Check that the login credentials are correct
     
     // Check that the login credentials are correct
-    var tmp = {firstName: firstName, lastName: lastName, login: login ,password:password};
+    var tmp = {firstName: firstName, lastName: lastName, password:password,login: login};
 //	var tmp = {login:login,password:hash};
 	var jsonPayload = JSON.stringify(tmp);
 	
@@ -177,23 +178,27 @@ function doSignUp(ext)
 	{
 		xhr.onreadystatechange = function() 
 		{
+            console.log("Making API Request");
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				var jsonObject = JSON.parse( xhr.responseText );
+				
+                var jsonObject = JSON.parse( xhr.responseText );
                 info = jsonObject;
                 console.log("response", jsonObject);
 				userId = jsonObject.uid;
-				if( userId < 1 || userId === undefined)
+                firstName = jsonObject.firstName;
+                lastName = jsonObject.lastName;
+				
+                if( userId < 1 || userId === undefined)
 				{	
                     // alert.innerHTML = "Cannot find a match for the given password or username";
                     console.log("User / Password Information Incorrect")
 					return;
 				}
 		
-                firstName = jsonObject.firstName;
-                lastName = jsonObject.lastName;
+               
 
-        saveCookie();
+        // saveCookie();
         // If the credentials are correct allow the user to be logged in
         // and access the contact page
         console.log("User: " + login + "Found, Logging in...");

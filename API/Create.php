@@ -38,7 +38,7 @@
         if ($result = $conn->query($stmt) != TRUE)
         {
             // // Creation failure.
-            // returnWithErrorContact($conn->error);
+            // returnWithContactError($conn->error);
             
             // Connection error.
 		    returnWithUserError($conn->connect_error);

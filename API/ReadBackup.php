@@ -39,7 +39,7 @@
         }
         else
         {
-            returnWithErrorContact("No records found.");
+            returnWithContactError("No records found.");
         }
     }
 

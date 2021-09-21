@@ -68,6 +68,7 @@
 	// Create a user contact object.
 	function createObjectContact($uid, $cid, $firstName, $lastName, $phone, $email, $error)
     {
+        $obj = new stdClass();
 		$obj->uid = $uid;
 		$obj->firstName = $firstName;
 		$obj->lastName = $lastName;
@@ -81,6 +82,7 @@
 	// Create user information related object.
 	function createObjectUser($uid, $login, $password, $firstName, $lastName, $error)
     {
+        $obj = new stdClass();
 		$obj->uid = $uid;
 		$obj->login = $login;
 		$obj->password = $password;
@@ -96,19 +98,19 @@
     {
 		if ((strlen($login) > 20) || ($login == NULL))
         {
-			returnWithErrorUser("Invalid login.\n");
+			returnWithUserError("Invalid login.\n");
         }
 		if ((strlen($password) > 80) || ($password == NULL))
         {
-			returnWithErrorUser("Invalid password.\n");
+			returnWithUserError("Invalid password.\n");
         }
         if ((strlen($firstName) > 30) || ($firstName == NULL))
         {
-			returnWithErrorUser("Invalid first name.\n");
+			returnWithUserError("Invalid first name.\n");
         }
 		if ((strlen($lastName) > 40) || ($lastName == NULL))
         {
-			returnWithErrorUser("Invalid last name.\n");
+			returnWithUserError("Invalid last name.\n");
         }
 	}
 
@@ -117,19 +119,19 @@
     {
 		if ((strlen($firstName) > 30) || ($firstName == NULL))
         {
-            returnWithErrorContact("First name is invalid.\n");
+            returnWithContactError("First name is invalid.\n");
         }
         if ((strlen($lastName) > 40) || ($lastName == NULL))
         {
-			returnWithErrorContact("Last name is invalid.\n");
+			returnWithContactError("Last name is invalid.\n");
         }
         if ((strlen($phone) > 15) || (strlen($phone) < 5))
         {
-			returnWithErrorContact("Contact phone is invalid.\n");
+			returnWithContactError("Contact phone is invalid.\n");
         }
         if (strlen($email) > 40 || (strlen($email) < 5))
         {
-			returnWithErrorContact("Email is invalid.\n");
+			returnWithContactError("Email is invalid.\n");
         }
 	}
 ?>

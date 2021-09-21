@@ -20,7 +20,7 @@
 	if ($conn->connect_error)
     {
         // MySQL connection failure.
-		returnWithErrorContact($conn->connect_error);
+		returnWithContactError($conn->connect_error);
 	}
     else
     {

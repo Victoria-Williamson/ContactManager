@@ -35,11 +35,11 @@
 
         if ($result = $conn->query($stmt) != TRUE)
         {
-			returnWithErrorContact("Contact not found.");
+			returnWithContactError("Contact not found.");
 		}
         else
         {
-            returnWithErrorContact("Contact deleted.");
+            returnWithContactError("Contact deleted.");
         }
 
         // Close previously established connection.
