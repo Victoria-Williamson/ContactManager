@@ -1,6 +1,4 @@
-var url = "http://localhost:8002/";
-//var apiURL = "http://localhost:8000/APIs/CRUD";
-// var url = "https://stirup.com/";
+var url = "https://stirup.co/";
 var apiURL = "https://stirup.co/API"
 
 var info = "";
