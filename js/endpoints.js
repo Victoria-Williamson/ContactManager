@@ -175,6 +175,8 @@ function checkContactPage()
             
                    for (user in jsonObject)
                    {
+                       console.log(user);
+                       console.log(user.firstName);
                        addContact(user.firstName, user.lastName, user.email,user.phone)
                    }
     
