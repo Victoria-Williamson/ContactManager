@@ -37,8 +37,11 @@
         // Query for the statement.
         if ($result = $conn->query($stmt) != TRUE)
         {
-            // Creation failure.
-            returnWithErrorContact($conn->error);
+            // // Creation failure.
+            // returnWithErrorContact($conn->error);
+            
+            // Connection error.
+		    returnWithUserError($conn->connect_error);
         }
         else
         {
@@ -51,7 +54,7 @@
 		$stmt->close();
 		$conn->close();
 
-        // Connection was successful, return nothing.
-		returnWithError("");
+         // Login failure.
+         returnWithUserError("There was an error creating the account");
 	}
 ?>

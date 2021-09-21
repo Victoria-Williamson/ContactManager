@@ -30,10 +30,10 @@
     function returnWithUserInfo( $uid, $firstName, $lastName, $error)
     {
         $retValue = new stdClass();
-        $retValue->$firstName = $firstName;
-        $retValue->$lastName = $lastName;
-        $retValue->$uid = $uid;
-        $retValue->$error = $error;
+        $retValue->firstName = $firstName;
+        $retValue->lastName = $lastName;
+        $retValue->uid = $uid;
+        $retValue->error = $error;
 
         sendResultInfoAsJson(json_encode($retValue));
     }
@@ -41,8 +41,16 @@
     // Set up a JSON of the search results and print it to browser.
     function returnWithContactInfo( $uid, $cid, $firstName, $lastName, $email, $number, $error)
     {
-        $retValue = '{"uid":' . $uid . ',"cid":"' . $cid . ',"firstName":"' . $firstName . ',"lastName":"' . $lastName . ',"email":"' . $email . ',"number":"' . $number .  '","error":"' . $error . '"}';
-        sendResultInfoAsJson( $retValue );
+        $retValue = new stdClass();
+        $retValue->firstName = $firstName;
+        $retValue->cid = $cid;
+        $retValue->number = $number;
+        $retValue->$email = $email;
+        $retValue->lastName = $lastName;
+        $retValue->uid = $uid;
+        $retValue->error = $error;
+       
+        sendResultInfoAsJson(json_encode($retValue));
     }
 
 	// Return user error as JSON.
