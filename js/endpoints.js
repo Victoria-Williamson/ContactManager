@@ -312,8 +312,9 @@ function showEditContact(event)
     if (event.id !== "contact-card")
         return;
     
+     
      card_id = event.className.replace('user','');
-    
+     console.log('card_id',card_id);
     console.log(GetElementInsideContainer(event, "contact-image"));
     console.log("tst",document.getElementsByClassName(event.className));
 
@@ -499,6 +500,7 @@ function hideEditContact()
     var action = document.getElementById("action-div");
     action.innerHTML = "";
     action.style.display = "none";
+    card_id = '';
 }
 function hideAddContact()
 {
