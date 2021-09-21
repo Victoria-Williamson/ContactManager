@@ -30,7 +30,7 @@ function doLogin(ext)
     // alert.innerHTML="";
     
     // Reset all variables to default setting 
-    userId = 0;
+    userId = -1;
 	firstName = "";
 	lastName = "";
 
@@ -138,7 +138,7 @@ function readCookie()
 
 function checkContactPage()
 {
-    if (userId < 1 || userId === undefined)
+    if (userId < 0 || userId === undefined)
     {
         console.log("User has not signed in");
         hasAccount();
