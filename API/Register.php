@@ -1,4 +1,3 @@
-// Register a user in MySQL.
 <?php
     // updated by nicolas
 	// Get the helper functions

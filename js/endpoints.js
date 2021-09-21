@@ -167,7 +167,7 @@ function doSignUp(ext)
     // Check that the login credentials are correct
     var tmp = {firstName: firstName, lastName: lastName, login: login ,password:password};
 //	var tmp = {login:login,password:hash};
-	var jsonPayload = JSON.stringify( tmp );
+	var jsonPayload = JSON.stringify(tmp);
 	
 	var loc = url + "API/Register.php";
 	var xhr = new XMLHttpRequest();
