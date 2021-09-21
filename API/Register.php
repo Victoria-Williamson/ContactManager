@@ -33,6 +33,10 @@
         $password = $inData["password"];
         $login = $inData["login"];
         
+        if ($firstName == NULL)
+        {
+            returnWithUserError("problems reading user data");
+        }
         // SQL statment preparation.
 		$stmt = "INSERT into Users (firstName, lastName, login, password) VALUES ('" . $firstName . "', '". $lastName . "', '" . $login . "', '" . $password . "')";
 
