@@ -399,8 +399,6 @@ function doSignUp(ext)
 				
                 if( userId < 1 || userId === undefined)
 				{	
-                    // alert.innerHTML = "Cannot find a match for the given password or username";
-                    console.log("User / Password Information Incorrect")
 					return;
 				}
 		
