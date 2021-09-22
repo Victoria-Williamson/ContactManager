@@ -20,7 +20,7 @@
 	else
 	{
         // Prepares a SQL statement for execute() function (? is a variable).
-        $stmt = $conn->prepare("INSERT into Contacts (uid, firstName, lastName, phoneNumber, Email) VALUES(?,?,?,?,?)");
+        $stmt = $conn->prepare("INSERT into Contacts (uid, firstName, lastName, PhoneNumber, Email) VALUES(?,?,?,?,?)");
 
         // Substitute variables for each (?).
         $stmt->bind_param("sssss", $inData['uid'], $inData['firstName'], $inData['lastName'], $inData['number'], $inData['email']);
