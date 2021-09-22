@@ -15,6 +15,16 @@ var tmp_lastName = "";
 var tmp_phoneNumber = "";
 var tmp_email = "";
 var tmp_search = "";
+
+function doLogout()
+{
+	userId = 0;
+	firstName = "";
+	lastName = "";
+	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+	window.location.href = "index.html";
+}
+
 function setSearch(e)
 {
     tmp_search = e;
@@ -170,35 +180,35 @@ function saveCookie()
 
 function readCookie()
 {
-	userId = -1;
-	var data = document.cookie;
-	var splits = data.split(",");
-	for(var i = 0; i < splits.length; i++) 
-	{
-		var thisOne = splits[i].trim();
-		var tokens = thisOne.split("=");
-		if( tokens[0] == "firstName" )
-		{
-			firstName = tokens[1];
-		}
-		else if( tokens[0] == "lastName" )
-		{
-			lastName = tokens[1];
-		}
-		else if( tokens[0] == "userId" )
-		{
-			userId = parseInt( tokens[1].trim() );
-		}
-	}
+	// userId = -1;
+	// var data = document.cookie;
+	// var splits = data.split(",");
+	// for(var i = 0; i < splits.length; i++) 
+	// {
+	// 	var thisOne = splits[i].trim();
+	// 	var tokens = thisOne.split("=");
+	// 	if( tokens[0] == "firstName" )
+	// 	{
+	// 		firstName = tokens[1];
+	// 	}
+	// 	else if( tokens[0] == "lastName" )
+	// 	{
+	// 		lastName = tokens[1];
+	// 	}
+	// 	else if( tokens[0] == "userId" )
+	// 	{
+	// 		userId = parseInt( tokens[1].trim() );
+	// 	}
+	// }
 	
-	if( userId < 0 )
-	{
-		window.location.href = "index.html";
-	}
-	else
-	{
-		// document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
-	}
+	// if( userId < 0 )
+	// {
+	// 	window.location.href = "index.html";
+	// }
+	// else
+	// {
+	// 	// document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+	// }
 }
 function loadAllContact()
 {

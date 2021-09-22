@@ -55,7 +55,17 @@ html, body
 
 
 
-
+#logout
+{
+    border: none;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top:10px;
+    right: 10px;
+    background-color: transparent;
+    float: right;
+}
 #contact-header
 {
     background-color: white;
