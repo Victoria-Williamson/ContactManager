@@ -31,7 +31,7 @@
         // SQL statment preparation.
 		$stmt = $conn->prepare("INSERT into Users (firstName, lastName, login, password) VALUES (?, ?, ?, ?)");
 
-        $stmt->bind_param("ssss",$inData["firstName"], $inData["lastName"],$inData["password"],$inData["login"]);
+        $stmt->bind_param("ssss",$inData["firstName"], $inData["lastName"],$inData["login"],$inData["password"]);
 
     
         
