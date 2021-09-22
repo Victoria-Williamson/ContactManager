@@ -40,11 +40,10 @@
         else
         {
             // Connection error.
-		    returnWithUserError($conn->connect_error);
+		    returnWithContactError($conn->error);
         }
-
+	}
         // Close previously established connection.
 		$stmt->close();
 		$conn->close();
-	}
 ?>
