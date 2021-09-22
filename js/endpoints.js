@@ -17,7 +17,7 @@ var tmp_email = "";
 var tmp_search = "";
 function setSearch(e)
 {
-    search = e;
+    tmp_search = e;
 }
 function setFirstName(e)
 {
