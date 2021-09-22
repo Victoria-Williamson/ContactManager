@@ -11,8 +11,8 @@
 	$cid = $inData["cid"];
 	$firstName = $inData["firstName"];
 	$lastName = $inData["lastName"];
-	$phone = $inData["PhoneNumber"];
-	$email = $inData["Email"];
+	$phone = $inData["phoneNumber"];
+	$email = $inData["email"];
 
     // Establish connection with mysqli(host, username, password, database).
 	$conn = db_connect();
@@ -62,9 +62,13 @@
 	}
 
 	// Prepare SQL statement.
-	$stmt = "UPDATE Contacts SET firstName = '" . $firstName . "', lastName = '" . $lastName . "', PhoneNumber = '" . $phone . "', Email = '" . $email . "WHERE cid = " . $cid . ";";
+	$stmt = $conn->prepare("UPDATE Contacts SET firstName =?, lastName =?, PhoneNumber =?', Email =? WHERE cid =?");
 
-	if ($result = $conn->query($stmt) != TRUE)
+	$stmt->bind_param("ssssi", $firstName, $lastName, $phone, $email);
+
+	$stmt->execute();
+
+	if ($stmt->error)
     {
         // Query failure.
 		returnWithContactError("Contact not found.");

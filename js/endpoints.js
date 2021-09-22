@@ -445,27 +445,57 @@ function editContact()
     var form_tmp = document.getElementById('add-contact-form');
 
     var form = GetElementInsideContainer(form_tmp, "card");
+
+
+    var firstName = tmp_firstName;
+    var lastName = tmp_lastName;
+    var phoneNumber = tmp_phoneNumber;
+    var userEmail = tmp_email;
     
+    var tmp = 
+    {
+        uid: userId,
+        cid: card_id,
+        firstName: firstName,
+        lastName: lastName,
+        phoneNumber: phoneNumber,
+        userEmail: userEmail
+    };
 
-
+    var jsonPayload = JSON.stringify(tmp);
+            console.log(jsonPayload);
+            
+            var loc = url + "API/update.php";
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", loc, true);
+            xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+            try
+            {
+                xhr.onreadystatechange = function() 
+                {
+                    console.log("Making API Request");
+                    if (this.readyState == 4 && this.status == 200) 
+                    {
+                        
+                        var jsonObject = JSON.parse( xhr.responseText );
+                        
+                        if(jsonObject.error.localeCompare("Contact not found.") === 0)
+                        {
+                            console.log(jsonObject.error);
+                            return;
+                        }
     
-    
-    console.log("kids", form.children);
-    
-
-
-    // var firstName = "11";
-
-    // console.log("name", name);
-    // var lastName = GetElementInsideContainer(form, "last-add").value;
-    // var phoneNumber = GetElementInsideContainer(form, "number-add").value;
-    // var useremail =GetElementInsideContainer(form, "email-add").value;
-
-    var firstName = "f-changed";
-    var lastName = "l-changed";
-    var phoneNumber = '111111111';
-    var userEmail = 'e-changed';
-
+        
+                        console.log("Updating the Contact")
+              
+                        }
+                    };
+                    xhr.send(jsonPayload);
+                }
+                catch(err)
+                {
+                    console.log(err.message);
+                }
     var card = curr_card;
     card.innerHTML = "";
     

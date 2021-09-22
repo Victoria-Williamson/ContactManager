@@ -34,8 +34,6 @@
             // Creation success.
             $cid = $stmt->insert_id;
             returnWithContactInfo($cid, "", "", "", "", "", "Contact created.");
-            
-           
         }
         else
         {
