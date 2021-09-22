@@ -25,17 +25,17 @@
           <div id="user-auth-card">
       <div id="card-sign-in">
           <text class="header"> Sign In</text>
-          <div id="alert-sign-in-desktop"></div>
+          <div id="alert-signin-desktop" class="alert-msg"></div>
           <div class="form">
               <label for="username-desktop">Username</label>
-              <input id="username-desktop" type="text" value="" placeholder="JohnDoe" name="username">
+              <input id="username-signin-desktop" type="text" value="" placeholder="JohnDoe" name="username">
             </div>
             <div class="form">
               <label for="password">Password</label>
-              <input id="password-desktop" type="text" value="" placeholder="Password" name="name">
+              <input id="password-signin-desktop" type="password" value="" placeholder="Password" name="name">
             </div>
             <div id="sign-in-btns">
-              <button id="sign-in" onclick='doLogin("desktop")'> Sign In </button>
+              <button id="sign-in" onclick='doLogin("signin-desktop")'> Sign In </button>
              
             </div>
           
@@ -43,7 +43,7 @@
 
   <div id="card-sign-up">
       <text class="header" style="color: white;"> Create An Account</text>
-      <div id="alert-sign-up-desktop"></div>
+      <div id="alert-desktop" style="color: white;"></div>
       <div class="form">
         <label for="firstName">First Name</label>
         <input id="firstName-desktop" type="text" value="" placeholder="John" name="firstName">
@@ -58,11 +58,11 @@
         </div>
         <div class="form">
           <label for="password">Password</label>
-          <input id="password-desktop" type="text" value="" placeholder="Password" name="name">
+          <input id="password-desktop" type="password" value="" placeholder="Password" name="name">
         </div>
         <div class="form">
           <label for="password">Confirm Password</label>
-          <input id="password-check-desktop" type="text" value="" placeholder="Password" name="password">
+          <input id="password-check-desktop" type="password" value="" placeholder="Password" name="password">
         </div>
           <button id="sign-up" onclick='doSignUp("desktop")'> Sign Up </button>
           
@@ -76,7 +76,7 @@
   <div id="auth-mobile">
 <div id="card-sign-up-mobile">
       <text class="header"> Create An Account</text>
-      <div id="alert-sign-up-mobile"></div>
+      <div id="alert-mobile"></div>
       <div class="form">
         <label for="firstName">First Name</label>
         <input id="firstName-mobile" type="text" value="" placeholder="John" name="firstName">
@@ -91,11 +91,11 @@
         </div>
         <div class="form">
           <label for="password">Password</label>
-          <input id="password-mobile" type="text" value="" placeholder="Password" name="name">
+          <input id="password-mobile" type="password" value="" placeholder="Password" name="name">
         </div>
         <div class="form">
           <label for="password">Confirm Password</label>
-          <input id="password-check-mobile" type="text" value="" placeholder="Password" name="password">
+          <input id="password-check-mobile" type="password" value="" placeholder="Password" name="password">
         </div>
           <button id="sign-up-mobile" onclick="doSignUp('mobile')"> Sign Up </button>
           <button onclick="hasAccount()"><text > Have an account? </text>

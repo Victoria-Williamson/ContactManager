@@ -60,8 +60,8 @@ function hasAccount()
 // Allows the User to Log into their account 
 function doLogin(ext)
 {
-    // var alert = document.getElementById("alert-" +ext);
-    // alert.innerHTML="";
+    var alert = document.getElementById("alert-" +ext);
+    alert.innerHTML="";
     
     // Reset all variables to default setting 
     userId = -1;
@@ -76,6 +76,32 @@ function doLogin(ext)
     document.getElementById("username-" + ext).innerHTML = "";
     document.getElementById("password-" + ext).innerHTML = "";
 
+    // Checking Last Name
+    if (login === null || login === undefined)
+    {
+        alert.innerHTML = "Error. No Username";
+        return;
+    }
+
+    
+    if (login.length === 0)
+    {
+        alert.innerHTML = "Error. No Username";
+        return;
+    }
+
+    // Checking Password
+    if (password === null || password === undefined)
+    {
+        alert.innerHTML = "Error. No Password";
+        return;
+    }
+
+    if (password.length === 0)
+    {
+        alert.innerHTML = "Error. No Password";
+        return;
+    }
     // Check that the login credentials are correct
     var tmp = {login: login,password:password};
 //	var tmp = {login:login,password:hash};
@@ -101,9 +127,7 @@ function doLogin(ext)
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
                 userId = jsonObject.uid;
-
-                
-                
+                alert.innerHTML = jsonObject.error;
 				
                 if( userId < 1 || userId === undefined)
 				{	
@@ -234,16 +258,97 @@ function checkContactPage()
 
 function doSignUp(ext)
 {
-    // var alert = document.getElementById("alert-" +ext);
-    // alert.innerHTML="";
-    // Get all the neccessary values
+    var alert = document.getElementById("alert-" + ext);
+    alert.innerHTML="";
     
     var firstName = document.getElementById("firstName-"+ ext).value;
     var lastName = document.getElementById("lastName-"+ ext).value;
     var login = document.getElementById("username-"+ext).value;
     var password = document.getElementById("password-" + ext).value;
-    var password_confirm = document.getElementById("password-check-"+ext);
-    console.log(firstName,login,password);
+    var password_confirm = document.getElementById("password-check-"+ext).value;
+
+    // Checking First Name 
+    if (firstName === null || firstName === undefined)
+    {
+        alert.innerHTML = "Error. No First Name";
+        return;
+    }
+
+    if (firstName.length === 0)
+    {
+        alert.innerHTML = "Error. No First Name";
+        return;
+    }
+
+    firstName = firstName.chatAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
+
+    // Checking Last Name
+    if (lastName === null || lastName === undefined)
+    {
+        alert.innerHTML = "Error. No Last Name";
+        return;
+    }
+
+    if (lastName.length === 0)
+    {
+        alert.innerHTML = "Error. No Last Name";
+        return;
+    }
+
+    lastName = lastName.chatAt(0).toUpperCase() + lastName.slice(1).toLowerCase();
+    // Checking Last Name
+    if (login === null || login === undefined)
+    {
+        alert.innerHTML = "Error. No Username";
+        return;
+    }
+
+    
+    if (login.length === 0)
+    {
+        alert.innerHTML = "Error. No Username";
+        return;
+    }
+
+  
+    // Checking Password
+    if (password === null || password === undefined)
+    {
+        alert.innerHTML = "Error. No Password";
+        return;
+    }
+
+    if (password.length === 0)
+    {
+        alert.innerHTML = "Error. No Password";
+        return;
+    }
+
+    // Checking Confirm Password
+    // Checking Password
+    if (password_confirm === null || password_confirm === undefined)
+    {
+        alert.innerHTML = "Error. No Confirmed Password";
+        return;
+    }
+
+    if (password_confirm.length === 0)
+    {
+        alert.innerHTML = "Error. No Confirmed Password";
+        return;
+    }
+
+    if (password_confirm === password)
+    {
+        console.log("passwords match!");
+    }
+    else
+    {
+        alert.innerHTML = "Error. Passwords do not match";
+        console.log(password_confirm,password);
+        return;
+    }
+    
     
     document.getElementById("firstName-"+ ext).innerHTML = "";
     document.getElementById("lastName-"+ ext).innerHTML = "";
@@ -279,6 +384,8 @@ function doSignUp(ext)
 			{
 				
                 var jsonObject = JSON.parse( xhr.responseText );
+
+                alert.innerHTML = jsonObject.error;
                 info = jsonObject;
                 console.log("response", jsonObject);
 				userId = jsonObject.uid;
