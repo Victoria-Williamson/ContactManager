@@ -459,6 +459,7 @@ function doSearch(search)
     if (search.length === 0)
     {
         loadAllContact();
+        return;
     }
     // Check that the login credentials are correct
     var tmp = {search: search, uid: userId};
@@ -492,8 +493,6 @@ function doSearch(search)
                for (var i = 0; i < jsonObject.length; i++)
                {
                    var user = jsonObject[i];
-                   console.log(user);
-                   console.log(user.firstName);
                    createContact(user.firstName, user.lastName, user.phone,user.email,user.cid);
                }
 
