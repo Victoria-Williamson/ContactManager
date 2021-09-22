@@ -34,26 +34,22 @@
 		$stmt->execute();
 
         // Query for the statement.
-        if ($result = $conn->query($stmt) != TRUE)
-        {
-            // // Creation failure.
-            // returnWithContactError($conn->error);
-            
-            // Connection error.
-		    returnWithUserError($conn->connect_error);
-        }
-        else
+        if ($stmt->execute())
         {
             // Creation success.
             $cid = $conn->insert_id;
             returnWithContactInfo($cid, "", "", "", "", "", "Contact created.");
+            
+           
+        }
+        else
+        {
+            // Connection error.
+		    returnWithUserError($conn->connect_error);
         }
 
         // Close previously established connection.
 		$stmt->close();
 		$conn->close();
-
-         // Login failure.
-         returnWithUserError("There was an error creating the account");
 	}
 ?>
