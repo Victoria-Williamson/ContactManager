@@ -175,6 +175,8 @@ function readCookie()
 function loadAllContact()
 {
 
+    var list = document.getElementById("contact-list");
+    list.innerHTML = "";
     readCookie();
     // Check that the login credentials are correct
     var tmp = {uid: userId,};
@@ -379,7 +381,7 @@ function showEditContact(event)
     setLastName(name_seperated[1]);
     setPhoneNumber(phone);
     setEmail(email);
-    
+
     var inner = document.createElement("div");
     inner.id = "add-contact-form";
     inner.className = 'center-div';
@@ -443,6 +445,68 @@ function deleteContact()
     hideEditContact();
 }
 
+function doSearch(search)
+{
+    var list = document.getElementById("contact-list");
+    list.innerHTML = "";
+
+    if (search === undefined || search === null)
+    {
+        loadAllContact();
+    }
+
+    if (search.length === 0)
+    {
+        loadAllContact();
+    }
+    // Check that the login credentials are correct
+    var tmp = {search: search, uid: userId};
+//	var tmp = {login:login,password:hash};
+    var jsonPayload = JSON.stringify(tmp);
+    console.log(jsonPayload);
+    
+    var loc = url + "API/search.php";
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", loc, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    try
+    {
+        xhr.onreadystatechange = function() 
+        {
+            console.log("Making API Request");
+            if (this.readyState == 4 && this.status == 200) 
+            {
+                
+                var jsonObject = JSON.parse( xhr.responseText);
+                console.log("response", jsonObject);
+               
+                
+                if( jsonObject === undefined || jsonObject === null)
+                {	
+                    // alert.innerHTML = "Cannot find a match for the given password or username";
+                    console.log("No Contacts Found")
+                    return;
+                }
+        
+               for (var i = 0; i < jsonObject.length; i++)
+               {
+                   var user = jsonObject[0];
+                   console.log(user);
+                   console.log(user.firstName);
+                   createContact(user.firstName, user.lastName, user.phone,user.email,user.cid);
+               }
+
+                console.log("We need to add the contacts")
+      
+                }
+            };
+            xhr.send(jsonPayload);
+        }
+        catch(err)
+        {
+            console.log(err.message);
+        }
+}
 function editContact()
 {
     if (curr_card === null || curr_info === null || curr_image === null)
