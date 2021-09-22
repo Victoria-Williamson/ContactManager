@@ -498,7 +498,7 @@ function showEditContact(event)
     var inner = document.createElement("div");
     inner.id = "add-contact-form";
     inner.className = 'center-div';
-    inner.innerHTML = '<div id="card"><div id="contact-image-big"><text id="initials">' + initials.innerHTML + '</text></div><div id="alert-edit" class="alert-msg"><div class="form" id="first-add"><label for="first-">First Name</label><input id="first-name" onchange="setFirstName(this.value)" type="text" value="' + name_seperated[0] + '" placeholder="John" name="name"></div><div class="form"><label for="last-add">Last Name</label><input id="last-add" onchange="setLastName(this.value)" type="text" value="' + name_seperated[1] + '" placeholder="Doe" name="name"></div><div class="form"><label for="number-add">Phone Number</label><input id="number-add type="text" onchange="setPhoneNumber(this.value)" value="' + phone + '" placeholder="555-555-5555" name="number"></div><div class="form"><label for="email-add">Email</label><input id="email-add" onchange="setEmail(this.value)" type="text" value="' + email + '" placeholder="email@domain.com" name="email"></div><div id="modify-buttons"><button id="save" onclick="editContact()"> Save </button><button id="delete" onclick="deleteContact()"> Delete </button></div><button id="exit" onclick="hideEditContact()"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="#919191"/></svg></div></div>';
+    inner.innerHTML = '<div id="card"><div id="contact-image-big"><text id="initials">' + initials.innerHTML + '</text></div><div id="alert-edit" class="alert-msg"> </div><div class="form" id="first-add"><label for="first-">First Name</label><input id="first-name" onchange="setFirstName(this.value)" type="text" value="' + name_seperated[0] + '" placeholder="John" name="name"></div><div class="form"><label for="last-add">Last Name</label><input id="last-add" onchange="setLastName(this.value)" type="text" value="' + name_seperated[1]+ '" placeholder="Doe" name="name"></div><div class="form"><label for="number-add">Phone Number</label><input id="number-add type="text" onchange="setPhoneNumber(this.value)" value="' + phone + '" placeholder="555-555-5555" name="number"></div><div class="form"><label for="email-add">Email</label><input id="email-add" onchange="setEmail(this.value)" type="text" value="' + email + '" placeholder="email@domain.com" name="email"></div><div id="modify-buttons"><button id="save" onclick="editContact()"> Save </button><button id="delete" onclick="deleteContact()"> Delete </button></div><button id="exit" onclick="hideEditContact()"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="#919191"/></svg></div></div>';
 
     parent.appendChild(inner);
 
@@ -641,9 +641,6 @@ function editContact()
 {
     if (curr_card === null || curr_info === null || curr_image === null)
         return;
-    var form_tmp = document.getElementById('add-contact-form');
-
-    var form = GetElementInsideContainer(form_tmp, "card");
     
     var firstName = tmp_firstName;
     var lastName = tmp_lastName;
@@ -657,6 +654,7 @@ function editContact()
     // Checking First Name 
     if (firstName === null || firstName === undefined)
     {
+        
         alert.innerHTML = "Error. No First Name";
         return;
     }
@@ -682,7 +680,7 @@ function editContact()
         return;
     }
 
-    if (userEmail === undefined || userEmail=== null)
+    if (userEmail === undefined || userEmail === null)
     {
         alert.innerHTML = "Error.Invalid email";
         return;
@@ -690,6 +688,7 @@ function editContact()
     if(!checkEmail(userEmail))
     {
         alert.innerHTML = "Error.Invalid email";
+        showEditContact();
         return;
     }
 
@@ -765,7 +764,7 @@ function editContact()
 
     var initials = document.createElement('text');
     initials.id = "initials";
-    initials.innerHTML = firstName.charAt(0) + lastName.charAt(0);
+    initials.innerHTML = firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
 
     cardImage.appendChild(initials);
     card.appendChild(cardImage);
@@ -800,6 +799,7 @@ function editContact()
     curr_card = null;
     curr_image = null;
     curr_info = null;
+    console.log("reached end of edit contact");
     hideEditContact();
 }
 
@@ -858,7 +858,7 @@ function createContact(firstName, lastName,phoneNumber,userEmail,cid)
 
     var initials = document.createElement('text');
     initials.id = "initials";
-    initials.innerHTML = firstName.charAt(0) + lastName.charAt(0);
+    initials.innerHTML = firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
 
     cardImage.appendChild(initials);
     card.appendChild(cardImage);
@@ -902,6 +902,8 @@ function createContact(firstName, lastName,phoneNumber,userEmail,cid)
 function checkEmail(email)
 {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    console.log("check email result", re.test(String(email).toLowerCase()));
     return re.test(String(email).toLowerCase());
 }
 function addContact()
@@ -947,18 +949,18 @@ function addContact()
         return;
     }
 
-    if (email === undefined || email === null)
+    if (userEmail === undefined || userEmail === null)
     {
-        alert.innerHTML = "Error.Invalid email";
+        alert.innerHTML = "Error.Invalid email.";
         return;
     }
-    if(!checkEmail(email))
+    if(!checkEmail(userEmail))
     {
-        alert.innerHTML = "Error.Invalid email";
+        alert.innerHTML = "Error.Invalid email.";
         return;
     }
 
-    email = email.toLowerCase();
+    userEmail = userEmail.toLowerCase();
 
     phoneNumber = phoneNumber.replace('-',"");
     phoneNumber = phoneNumber.replace('(', "");
@@ -1030,7 +1032,7 @@ function addContact()
 
     var initials = document.createElement('text');
     initials.id = "initials";
-    initials.innerHTML = firstName.charAt(0) + lastName.charAt(0);
+    initials.innerHTML = firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
 
     cardImage.appendChild(initials);
     card.appendChild(cardImage);
