@@ -300,7 +300,7 @@ function doSignUp(ext)
     }
 
     // lastName = lastName.chatAt(0).toUpperCase() + lastName.slice(1).toLowerCase();
-    
+
     // Checking Last Name
     if (login === null || login === undefined)
     {
@@ -409,6 +409,7 @@ function doSignUp(ext)
         
         // If the credentials are correct allow the user to be logged in
         // and access the contact page
+        alert.innerHTML("Account Created!");
         console.log("User: " + login + "Found, Logging in...");
       
                 }
