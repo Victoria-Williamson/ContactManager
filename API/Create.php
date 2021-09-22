@@ -1,4 +1,3 @@
-// Create a new contact.
 <?php
 
     // Get the helper functions
@@ -46,8 +45,8 @@
         else
         {
             // Creation success.
-            $uid = $conn->insert_id;
-            returnWithContactInfo($uid, "", "", "", "", "", "Contact created.");
+            $cid = $conn->insert_id;
+            returnWithContactInfo($cid, "", "", "", "", "", "Contact created.");
         }
 
         // Close previously established connection.

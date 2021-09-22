@@ -39,7 +39,7 @@
     }
 
     // Set up a JSON of the search results and print it to browser.
-    function returnWithContactInfo( $uid, $cid, $firstName, $lastName, $email, $number, $error)
+    function returnWithContactInfo( $cid, $uid, $firstName, $lastName, $email, $number, $error)
     {
         $retValue = new stdClass();
         $retValue->firstName = $firstName;
