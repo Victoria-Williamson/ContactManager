@@ -284,7 +284,7 @@ function doSignUp(ext)
         return;
     }
 
-    firstName = firstName.chatAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
+    // firstName = firstName.chatAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
 
     // Checking Last Name
     if (lastName === null || lastName === undefined)
@@ -299,7 +299,8 @@ function doSignUp(ext)
         return;
     }
 
-    lastName = lastName.chatAt(0).toUpperCase() + lastName.slice(1).toLowerCase();
+    // lastName = lastName.chatAt(0).toUpperCase() + lastName.slice(1).toLowerCase();
+    
     // Checking Last Name
     if (login === null || login === undefined)
     {
