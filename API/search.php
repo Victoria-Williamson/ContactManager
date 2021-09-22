@@ -17,13 +17,14 @@ include 'util.php';
     else
     {
         // Search through first and last names that belong to the user. Parenthesis for unambiguity!
-        $stmt = $connection->prepare("SELECT * FROM Contacts WHERE (firstName LIKE %?% or lastName LIKE %?%) AND uid=?");
+        $stmt = $connection->prepare("SELECT * FROM Contacts WHERE firstName LIKE '%? %' OR lastName LIKE '% ? %' AND uid = ?");
 
         $stmt->bind_param('ssi', $inData['search'], $inData['search'], $inData['uid']);
 
         $stmt->execute();
          // Data fetched from database to PHP.
 		$result = $stmt->get_result();
+        
         if ($result->num_rows > 0)
         {
             while($row = $result->fetch_assoc())
@@ -39,8 +40,6 @@ include 'util.php';
             returnWithContactError("No contacts matching search");
             
         }
-        
-       
     }
      // Send results.
      sendResultInfoAsJSON(json_encode($results));
