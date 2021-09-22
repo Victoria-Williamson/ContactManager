@@ -503,11 +503,25 @@ function showEditContact(event)
     loc.style.display = "block";
 }
 
-
+function confirmDialog(msg) {
+    return new Promise(function (resolve, reject) {
+      let confirmed = window.confirm(msg);
+  
+      return confirmed ? resolve(true) : reject(false);
+    });
+   }
+   
 function deleteContact()
 {
     if (curr_card === null || curr_info === null || curr_image === null || card_id === null || card_id === undefined)
         return;
+    confirmDialog('Do you really want to delete this?')
+        .then(() => console.log("User decided to delete"))
+        .catch(err => 
+            {
+                console.log("User did not want to delete");
+                return;
+            })
 
         var tmp = {cid: card_id,};
         //	var tmp = {login:login,password:hash};
