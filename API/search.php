@@ -7,6 +7,7 @@ include 'util.php';
 
     $searchResults = "";
     $searchCount = 0;
+    $resCount = 0;
     $results = array();
 
     $connection = db_connect();
@@ -18,7 +19,7 @@ include 'util.php';
     else
     {
         // Search through first and last names that belong to the user. Parenthesis for unambiguity!
-        $stmt = $connection->prepare("SELECT FROM Contacts WHERE (firstname like %?% or LASTNAME like %?%) and USERID=?");
+        $stmt = $connection->prepare("SELECT FROM Contacts WHERE (firstName LIKE %?% or lastName LIKE %?%) AND uid=?");
 
         $stmt->bind_param('ssi', $inData['search'], $inData['search'], $inData['uid']);
 
@@ -26,9 +27,6 @@ include 'util.php';
 		$result = $stmt->get_result();
         if ($result->num_rows > 0)
         {
-            $searchResults .= '"resultCount" : ' . $result->num_rows . ',';
-            $searchResults .= '"results" : [';
-
             while($row = $result->fetch_assoc())
             {
                 $results[$resCount] = createObjectContact($row["uid"], $row["cid"],$row["firstName"], $row["lastName"], $row["PhoneNumber"], $row["Email"], "");
