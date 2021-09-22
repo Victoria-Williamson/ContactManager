@@ -453,6 +453,7 @@ function doSearch(search)
     if (search === undefined || search === null)
     {
         loadAllContact();
+        return;
     }
 
     if (search.length === 0)
