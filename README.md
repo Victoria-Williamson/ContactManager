@@ -12,7 +12,7 @@ APIs
 1. Git clone the repository
 2. cd ContactManager
 3. cmd php -S 127.0.0.1:8000
-4. go to http://localhost:8000/pages/<page_folder>/<page_name>.php
+4. go to http://localhost:8000/index.html
 
 ## Technologies Used
 * LAMP Stack
