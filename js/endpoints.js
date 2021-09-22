@@ -209,7 +209,7 @@ function loadAllContact()
         
                for (var i = 0; i < jsonObject.length; i++)
                {
-                   var user = jsonObject[0];
+                   var user = jsonObject[i];
                    console.log(user);
                    console.log(user.firstName);
                    createContact(user.firstName, user.lastName, user.phone,user.email,user.cid);
@@ -491,7 +491,7 @@ function doSearch(search)
         
                for (var i = 0; i < jsonObject.length; i++)
                {
-                   var user = jsonObject[0];
+                   var user = jsonObject[i];
                    console.log(user);
                    console.log(user.firstName);
                    createContact(user.firstName, user.lastName, user.phone,user.email,user.cid);
