@@ -27,9 +27,12 @@
   
   <div id="search-div">
       <div id="actions">
-      <input placeholder="Search..." onchange="doSearch(this.value)"id="search"/>
+      <input placeholder="Search..." onchange="setSearch(this.value)"id="search"/>
+      <button id="searchBtn" onclick="doSearch()">
+        <text> Search </text>
+    </button>
       <button id="addContact" onclick="showAddContact()">
-          <text> + </text>
+          <text> Add </text>
       </button>
     </div>
 </div>

@@ -14,7 +14,11 @@ var tmp_firstName = "";
 var tmp_lastName = "";
 var tmp_phoneNumber = "";
 var tmp_email = "";
-
+var tmp_search = "";
+function setSearch(e)
+{
+    search = e;
+}
 function setFirstName(e)
 {
     tmp_firstName = e;
@@ -510,7 +514,7 @@ function confirmDialog(msg) {
       return confirmed ? resolve(true) : reject(false);
     });
    }
-   
+
 function deleteContact()
 {
     if (curr_card === null || curr_info === null || curr_image === null || card_id === null || card_id === undefined)
@@ -566,10 +570,12 @@ function deleteContact()
     hideEditContact();
 }
 
-function doSearch(search)
+function doSearch()
 {
     var list = document.getElementById("contact-list");
     list.innerHTML = "";
+
+    var search = tmp_search;
 
     if (search === undefined || search === null)
     {
