@@ -23,6 +23,7 @@ include 'util.php';
 
         $stmt->bind_param('ssi', $inData['search'], $inData['search'], $inData['uid']);
 
+        $stmt->execute();
          // Data fetched from database to PHP.
 		$result = $stmt->get_result();
         if ($result->num_rows > 0)
