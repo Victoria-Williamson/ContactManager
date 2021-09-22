@@ -522,7 +522,8 @@ function deleteContact()
     if (curr_card === null || curr_info === null || curr_image === null || card_id === null || card_id === undefined)
         return;
     confirmDialog('Do you really want to delete this?')
-        .then(() => console.log("User decided to delete"))
+        .then((output) => {
+            if(output !== true) return;}) 
         .catch(err => 
             {
                 console.log("User did not want to delete");
