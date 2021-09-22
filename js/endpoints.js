@@ -628,7 +628,7 @@ function addContact()
 	var jsonPayload = JSON.stringify( tmp );
 	
 	var loc = url + "API/Create.php";
-    console.log(loc);
+   
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", loc, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -702,11 +702,7 @@ function addContact()
     user_information.append(email);
 
     card.appendChild(user_information);
-    console.log(document.getElementById('action-div'));
-    console.log(document.getElementById('contact-div'));
     var parent = document.getElementById('contact-div');
-    console.log(parent);
-    console.log(document.getElementsByClassName("contact-list"))
     var list = document.getElementById("contact-list");
 
     list.append(card);

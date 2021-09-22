@@ -25,8 +25,8 @@
         // Substitute variables for each (?).
         $stmt->bind_param("sssss", $inData['uid'], $inData['firstName'], $inData['lastName'], $inData['number'], $inData['email']);
 
-        // Execute the prepared query.
-		$stmt->execute();
+        // // Execute the prepared query.
+		// $stmt->execute();
 
         // Query for the statement.
         if ($stmt->execute())
