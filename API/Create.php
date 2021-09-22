@@ -6,12 +6,7 @@
     // Take the JSON response and convert it to PHP variable.
 	$inData = getRequestInfo();
 
-    // Initialize variables by parsing out JSON response.
-    $uid = $inData["uid"];
-	$firstName = $inData["firstName"];
-    $lastName = $inData["lastName"];
-    $number = $inData["number"];
-    $email = $inData["email"];
+ 
 
     // Establish connection with mysqli(host, username, password, database).
     $conn = db_connect();
@@ -28,7 +23,7 @@
         $stmt = $conn->prepare("INSERT into Contacts (uid, firstName, lastName, number, email) VALUES(?,?,?,?,?)");
 
         // Substitute variables for each (?).
-        $stmt->bind_param("sssss", $uid, $firstName, $lastName, $number, $email);
+        $stmt->bind_param("sssss", $inData['uid'], $inData['firstName'], $inData['lastName'], $inData['number'], $inData['email']);
 
         // Execute the prepared query.
 		$stmt->execute();
@@ -37,7 +32,7 @@
         if ($stmt->execute())
         {
             // Creation success.
-            $cid = $conn->insert_id;
+            $cid = $stmt->insert_id;
             returnWithContactInfo($cid, "", "", "", "", "", "Contact created.");
             
            
