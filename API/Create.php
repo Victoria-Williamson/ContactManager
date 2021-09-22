@@ -42,8 +42,9 @@
             // Connection error.
 		    returnWithContactError($conn->error);
         }
-	}
-        // Close previously established connection.
+         // Close previously established connection.
 		$stmt->close();
+	}
+       
 		$conn->close();
 ?>
