@@ -170,35 +170,35 @@ function saveCookie()
 
 function readCookie()
 {
-	userId = -1;
-	var data = document.cookie;
-	var splits = data.split(",");
-	for(var i = 0; i < splits.length; i++) 
-	{
-		var thisOne = splits[i].trim();
-		var tokens = thisOne.split("=");
-		if( tokens[0] == "firstName" )
-		{
-			firstName = tokens[1];
-		}
-		else if( tokens[0] == "lastName" )
-		{
-			lastName = tokens[1];
-		}
-		else if( tokens[0] == "userId" )
-		{
-			userId = parseInt( tokens[1].trim() );
-		}
-	}
+	// userId = -1;
+	// var data = document.cookie;
+	// var splits = data.split(",");
+	// for(var i = 0; i < splits.length; i++) 
+	// {
+	// 	var thisOne = splits[i].trim();
+	// 	var tokens = thisOne.split("=");
+	// 	if( tokens[0] == "firstName" )
+	// 	{
+	// 		firstName = tokens[1];
+	// 	}
+	// 	else if( tokens[0] == "lastName" )
+	// 	{
+	// 		lastName = tokens[1];
+	// 	}
+	// 	else if( tokens[0] == "userId" )
+	// 	{
+	// 		userId = parseInt( tokens[1].trim() );
+	// 	}
+	// }
 	
-	if( userId < 0 )
-	{
-		window.location.href = "index.html";
-	}
-	else
-	{
-		// document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
-	}
+	// if( userId < 0 )
+	// {
+	// 	window.location.href = "index.html";
+	// }
+	// else
+	// {
+	// 	// document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+	// }
 }
 function loadAllContact()
 {
@@ -498,7 +498,7 @@ function showEditContact(event)
     var inner = document.createElement("div");
     inner.id = "add-contact-form";
     inner.className = 'center-div';
-    inner.innerHTML = '<div id="card"><div id="contact-image-big"><text id="initials">' + initials.innerHTML + '</text></div><div class="form" id="first-add"><label for="first-">First Name</label><input id="first-name" onchange="setFirstName(this.value)" type="text" value="' + name_seperated[0] + '" placeholder="John" name="name"></div><div class="form"><label for="last-add">Last Name</label><input id="last-add" onchange="setLastName(this.value)" type="text" value="' + name_seperated[1] + '" placeholder="Doe" name="name"></div><div class="form"><label for="number-add">Phone Number</label><input id="number-add type="text" onchange="setPhoneNumber(this.value)" value="' + phone + '" placeholder="555-555-5555" name="number"></div><div class="form"><label for="email-add">Email</label><input id="email-add" onchange="setEmail(this.value)" type="text" value="' + email + '" placeholder="email@domain.com" name="email"></div><div id="modify-buttons"><button id="save" onclick="editContact()"> Save </button><button id="delete" onclick="deleteContact()"> Delete </button></div><button id="exit" onclick="hideEditContact()"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="#919191"/></svg></div></div>';
+    inner.innerHTML = '<div id="card"><div id="contact-image-big"><text id="initials">' + initials.innerHTML + '</text></div><div id="alert-edit" class="alert-msg"><div class="form" id="first-add"><label for="first-">First Name</label><input id="first-name" onchange="setFirstName(this.value)" type="text" value="' + name_seperated[0] + '" placeholder="John" name="name"></div><div class="form"><label for="last-add">Last Name</label><input id="last-add" onchange="setLastName(this.value)" type="text" value="' + name_seperated[1] + '" placeholder="Doe" name="name"></div><div class="form"><label for="number-add">Phone Number</label><input id="number-add type="text" onchange="setPhoneNumber(this.value)" value="' + phone + '" placeholder="555-555-5555" name="number"></div><div class="form"><label for="email-add">Email</label><input id="email-add" onchange="setEmail(this.value)" type="text" value="' + email + '" placeholder="email@domain.com" name="email"></div><div id="modify-buttons"><button id="save" onclick="editContact()"> Save </button><button id="delete" onclick="deleteContact()"> Delete </button></div><button id="exit" onclick="hideEditContact()"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="#919191"/></svg></div></div>';
 
     parent.appendChild(inner);
 
@@ -644,13 +644,74 @@ function editContact()
     var form_tmp = document.getElementById('add-contact-form');
 
     var form = GetElementInsideContainer(form_tmp, "card");
-
-
+    
     var firstName = tmp_firstName;
     var lastName = tmp_lastName;
     var phoneNumber = tmp_phoneNumber;
     var userEmail = tmp_email;
     
+    var alert = document.getElementById('alert-edit');
+    alert.innerHTML = "";
+    
+    
+    // Checking First Name 
+    if (firstName === null || firstName === undefined)
+    {
+        alert.innerHTML = "Error. No First Name";
+        return;
+    }
+
+    if (firstName.length === 0)
+    {
+        alert.innerHTML = "Error. No First Name";
+        return;
+    }
+
+    // firstName = firstName.chatAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
+
+    // Checking Last Name
+    if (lastName === null || lastName === undefined)
+    {
+        alert.innerHTML = "Error. No Last Name";
+        return;
+    }
+
+    if (lastName.length === 0)
+    {
+        alert.innerHTML = "Error. No Last Name";
+        return;
+    }
+
+    if (userEmail === undefined || userEmail=== null)
+    {
+        alert.innerHTML = "Error.Invalid email";
+        return;
+    }
+    if(!checkEmail(userEmail))
+    {
+        alert.innerHTML = "Error.Invalid email";
+        return;
+    }
+
+    userEmail = userEmail.toLowerCase();
+
+    phoneNumber = phoneNumber.replace('-',"");
+    phoneNumber = phoneNumber.replace('(', "");
+    phoneNumber = phoneNumber.replace('(', "");
+
+    if (phoneNumber === null || phoneNumber === undefined)
+    {
+        alert.innerHTML = "Error. No Phone Number";
+        return;
+    }
+
+    if (phoneNumber.length != 10)
+    {
+        alert.innerHTML = "Error.Invalid Phone Number.";
+        return;
+    }
+
+
     var tmp = 
     {
         uid: userId,
@@ -750,7 +811,7 @@ function showAddContact()
 
     var inner = document.createElement("div");
     inner.className = 'center-div';
-    inner.innerHTML = '<div id="card"><div id="contact-image-big"><text id="initials"> ? </text></div><div class="form"><label for="first-add">First Name</label><input id="first-add" onchange="setFirstName(this.value)" type="text" value="" placeholder="John" name="name"></div><div class="form"><label for="last-add">Last Name</label><input id="last-add" type="text" onchange="setLastName(this.value)"value="" placeholder="Doe" name="name"></div><div class="form"><label for="number-add">Phone Number</label><input id="number-add type="text" value="" placeholder="555-555-5555" onchange="setPhoneNumber(this.value)" name="number"></div><div class="form"><label for="email-add">Email</label><input id="email-add" type="text" onchange="setEmail(this.value)"value="" placeholder="email@domain.com" name="email"></div><button id="save" onclick="addContact()"> Save </button><button id="exit" onclick="hideAddContact()"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="#919191"/></svg></div></div>';
+    inner.innerHTML = '<div id="card"><div id="contact-image-big"><text id="initials"> ? </text></div> <div id="alert-add" class="alert-msg"></div><div class="form"><label for="first-add">First Name</label><input id="first-add" onchange="setFirstName(this.value)" type="text" value="" placeholder="John" name="name"></div><div class="form"><label for="last-add">Last Name</label><input id="last-add" type="text" onchange="setLastName(this.value)"value="" placeholder="Doe" name="name"></div><div class="form"><label for="number-add">Phone Number</label><input id="number-add type="text" value="" placeholder="555-555-5555" onchange="setPhoneNumber(this.value)" name="number"></div><div class="form"><label for="email-add">Email</label><input id="email-add" type="text" onchange="setEmail(this.value)"value="" placeholder="email@domain.com" name="email"></div><button id="save" onclick="addContact()"> Save </button><button id="exit" onclick="hideAddContact()"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="#919191"/></svg></div></div>';
 
     parent.appendChild(inner);
     
@@ -779,10 +840,8 @@ function createContact(firstName, lastName,phoneNumber,userEmail,cid)
 
     hideAddContact();
     phoneNumber = phoneNumber.replace('-',"");
-    // var firstName = "vic";
-    // var lastName = "last";
-    // var phoneNumber = "555555555";
-    // var userEmail = "email@domain.com";
+    phoneNumber = phoneNumber.replace('(', "");
+    phoneNumber = phoneNumber.replace('(', "");
    
     
     var card = document.createElement('div');
@@ -840,6 +899,11 @@ function createContact(firstName, lastName,phoneNumber,userEmail,cid)
     clearTempValues();
     
 }
+function checkEmail(email)
+{
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
 function addContact()
 {
     var firstName = tmp_firstName;
@@ -848,9 +912,71 @@ function addContact()
     var userEmail = tmp_email;
     var cid = -1;
     
-    hideAddContact();
+    
+    
+    
+    var alert = document.getElementById('alert-add');
+    alert.innerHTML = "";
+
+
+    // Checking First Name 
+    if (firstName === null || firstName === undefined)
+    {
+        alert.innerHTML = "Error. No First Name";
+        return;
+    }
+
+    if (firstName.length === 0)
+    {
+        alert.innerHTML = "Error. No First Name";
+        return;
+    }
+
+    // firstName = firstName.chatAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
+
+    // Checking Last Name
+    if (lastName === null || lastName === undefined)
+    {
+        alert.innerHTML = "Error. No Last Name";
+        return;
+    }
+
+    if (lastName.length === 0)
+    {
+        alert.innerHTML = "Error. No Last Name";
+        return;
+    }
+
+    if (email === undefined || email === null)
+    {
+        alert.innerHTML = "Error.Invalid email";
+        return;
+    }
+    if(!checkEmail(email))
+    {
+        alert.innerHTML = "Error.Invalid email";
+        return;
+    }
+
+    email = email.toLowerCase();
+
     phoneNumber = phoneNumber.replace('-',"");
+    phoneNumber = phoneNumber.replace('(', "");
+    phoneNumber = phoneNumber.replace('(', "");
+
+    if (phoneNumber === null || phoneNumber === undefined)
+    {
+        alert.innerHTML = "Error. No Phone Number";
+        return;
+    }
+
+    if (phoneNumber.length != 10)
+    {
+        alert.innerHTML = "Error.Invalid Phone Number.";
+        return;
+    }
    
+    
     // Check that the login credentials are correct
     var tmp = {uid: userId,firstName:firstName, lastName: lastName, number:phoneNumber, email:userEmail};
 
@@ -874,9 +1000,9 @@ function addContact()
                 
 				var jsonObject = JSON.parse(xhr.responseText);
 				
-                if (jsonObject.cid === null ||jsonObject.cid === undefined)
+                if (jsonObject.cid === null ||jsonObject.cid === undefined, jsonObject.cid < 0)
                 {
-                    console.log("There was an error trying to create a contact");
+                    alert.innerHTML = "There was an error trying to create a contact";
                     return;
                 }
                 
@@ -937,6 +1063,8 @@ function addContact()
     var list = document.getElementById("contact-list");
 
     list.append(card);
+
+    hideAddContact();
     
 }
 
