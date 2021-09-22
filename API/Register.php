@@ -33,7 +33,6 @@
 
         $stmt->bind_param("ssss",$inData["firstName"], $inData["lastName"],$inData["password"],$inData["login"]);
 
-        $stmt->execute();
     
         
 		if ($stmt->execute())
