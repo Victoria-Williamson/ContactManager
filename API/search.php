@@ -17,9 +17,9 @@ include 'util.php';
     else
     {
         // Search through first and last names that belong to the user. Parenthesis for unambiguity!
-        $stmt = $connection->prepare("SELECT * FROM Contacts WHERE firstName LIKE '%? %' OR lastName LIKE '% ? %' AND uid = ?");
-
-        $stmt->bind_param('ssi', $inData['search'], $inData['search'], $inData['uid']);
+        $stmt = $connection->prepare("SELECT * FROM Contacts WHERE firstName LIKE ? OR lastName LIKE ? AND uid=?");
+        $search = "%" . $inData["search"] . "%";
+        $stmt->bind_param('ssi', $search, $search, $inData['uid']);
 
         $stmt->execute();
          // Data fetched from database to PHP.
