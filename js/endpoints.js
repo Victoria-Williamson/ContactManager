@@ -533,7 +533,7 @@ function deleteContact()
         .then((output) => {
             if(output !== true) 
             {
-                // loadAllContact();
+                loadAllContact();
                 return;
             }
             }) 
