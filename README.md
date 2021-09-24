@@ -1,13 +1,25 @@
 # ContactManager
-## Team Members and Roles
-Project Manager
+## Contributions :
+**Project Manager** : Nick
 
-Front End 
+**Documentation** : Ellie
 
-Back End 
+**Front End** : Victoria 
 
-APIs
+**Database** : Joel and Jerzy
+
+**APIs**: Jerzy, Joel, Ellie, and Victoria
+
 ## About
+
+## Tech Stack
+- SwaggerHub - APIs
+- Discord - Communication
+- GitHub
+- MySQL - Database
+- JS, HTML, CSS - Front End
+- DigitalOcean 
+
 ## How to Use Locally 
 1. Git clone the repository
 2. cd ContactManager
