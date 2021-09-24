@@ -531,7 +531,12 @@ function deleteContact()
         return;
     confirmDialog('Do you really want to delete this?')
         .then((output) => {
-            if(output !== true) return;}) 
+            if(output !== true) 
+            {
+                loadAllContact();
+                return;
+            }
+            }) 
         .catch(err => 
             {
                 console.log("User did not want to delete");
@@ -579,6 +584,7 @@ function deleteContact()
     curr_image = null;
     curr_info = null;
     hideEditContact();
+    loadAllContact();
 }
 
 function doSearch()
