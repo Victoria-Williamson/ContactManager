@@ -533,7 +533,7 @@ function deleteContact()
         .then((output) => {
             if(output !== true) 
             {
-                loadAllContact();
+                // loadAllContact();
                 return;
             }
             }) 
@@ -579,12 +579,13 @@ function deleteContact()
                 {
                     console.log(err.message);
                 }
+    curr_card.innerHTML = "";
     curr_card.style.display = "none";
     curr_card = null;
     curr_image = null;
     curr_info = null;
     hideEditContact();
-    loadAllContact();
+    // loadAllContact();
 }
 
 function doSearch()
