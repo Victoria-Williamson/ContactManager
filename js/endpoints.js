@@ -449,7 +449,7 @@ function searchContacts()
     document.getElementById('contact-list').innerHTML = "";
     var contactList = "";
 
-    var tmp = {search:search,userId:userId};
+    var tmp = {search:search,uid:userId};
 	var jsonPayload = JSON.stringify( tmp );
 
     // var loc = url + "APIs/CRUD/register.php";
@@ -531,19 +531,10 @@ function deleteContact()
         return;
     confirmDialog('Do you really want to delete this?')
         .then((output) => {
-            if(output !== true) 
+            if(output === true) 
             {
-                loadAllContact();
-                return;
-            }
-            }) 
-        .catch(err => 
-            {
-                console.log("User did not want to delete");
-                return;
-            })
-
-        var tmp = {cid: card_id,};
+               
+                var tmp = {cid: card_id,};
         //	var tmp = {login:login,password:hash};
             var jsonPayload = JSON.stringify(tmp);
             console.log(jsonPayload);
@@ -586,6 +577,16 @@ function deleteContact()
     curr_info = null;
     hideEditContact();
     // loadAllContact();
+                return;
+            }
+            }) 
+        .catch(err => 
+            {
+                console.log("User did not want to delete");
+                return;
+            })
+
+        
 }
 
 function doSearch()
