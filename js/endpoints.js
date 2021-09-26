@@ -93,27 +93,27 @@ function doLogin(ext)
     // Checking Last Name
     if (login === null || login === undefined)
     {
-        alert.innerHTML = "Error. No Username";
+        alert.innerHTML = "Please enter your username.";
         return;
     }
 
     
     if (login.length === 0)
     {
-        alert.innerHTML = "Error. No Username";
+        alert.innerHTML = "Please enter your username.";
         return;
     }
 
     // Checking Password
     if (password === null || password === undefined)
     {
-        alert.innerHTML = "Error. No Password";
+        alert.innerHTML = "Please enter your password.";
         return;
     }
 
     if (password.length === 0)
     {
-        alert.innerHTML = "Error. No Password";
+        alert.innerHTML = "Please enter your password.";
         return;
     }
     // Check that the login credentials are correct
@@ -284,13 +284,13 @@ function doSignUp(ext)
     // Checking First Name 
     if (firstName === null || firstName === undefined)
     {
-        alert.innerHTML = "Error. No First Name";
+        alert.innerHTML = "Please enter a first name.";
         return;
     }
 
     if (firstName.length === 0)
     {
-        alert.innerHTML = "Error. No First Name";
+        alert.innerHTML = "Please enter a first name.";
         return;
     }
 
@@ -299,13 +299,13 @@ function doSignUp(ext)
     // Checking Last Name
     if (lastName === null || lastName === undefined)
     {
-        alert.innerHTML = "Error. No Last Name";
+        alert.innerHTML = "Please enter a last name.";
         return;
     }
 
     if (lastName.length === 0)
     {
-        alert.innerHTML = "Error. No Last Name";
+        alert.innerHTML = "Please enter a last name.";
         return;
     }
 
@@ -314,14 +314,14 @@ function doSignUp(ext)
     // Checking Last Name
     if (login === null || login === undefined)
     {
-        alert.innerHTML = "Error. No Username";
+        alert.innerHTML = "Please enter a username.";
         return;
     }
 
     
     if (login.length === 0)
     {
-        alert.innerHTML = "Error. No Username";
+        alert.innerHTML = "Please enter a username.";
         return;
     }
 
@@ -329,13 +329,13 @@ function doSignUp(ext)
     // Checking Password
     if (password === null || password === undefined)
     {
-        alert.innerHTML = "Error. No Password";
+        alert.innerHTML = "Please enter a password.";
         return;
     }
 
     if (password.length === 0)
     {
-        alert.innerHTML = "Error. No Password";
+        alert.innerHTML = "Please enter a password.";
         return;
     }
 
@@ -343,13 +343,13 @@ function doSignUp(ext)
     // Checking Password
     if (password_confirm === null || password_confirm === undefined)
     {
-        alert.innerHTML = "Error. No Confirmed Password";
+        alert.innerHTML = "Please confirm your password.";
         return;
     }
 
     if (password_confirm.length === 0)
     {
-        alert.innerHTML = "Error. No Confirmed Password";
+        alert.innerHTML = "Please confirm your password.";
         return;
     }
 
@@ -359,7 +359,7 @@ function doSignUp(ext)
     }
     else
     {
-        alert.innerHTML = "Error. Passwords do not match";
+        alert.innerHTML = "Passwords must match.";
         console.log(password_confirm,password);
         return;
     }
@@ -670,13 +670,13 @@ function editContact()
     if (firstName === null || firstName === undefined)
     {
         
-        alert.innerHTML = "Error. No First Name";
+        alert.innerHTML = "Please enter a first name.";
         return;
     }
 
     if (firstName.length === 0)
     {
-        alert.innerHTML = "Error. No First Name";
+        alert.innerHTML = "Please enter a first name.";
         return;
     }
 
@@ -685,24 +685,24 @@ function editContact()
     // Checking Last Name
     if (lastName === null || lastName === undefined)
     {
-        alert.innerHTML = "Error. No Last Name";
+        alert.innerHTML = "Please enter a last name.";
         return;
     }
 
     if (lastName.length === 0)
     {
-        alert.innerHTML = "Error. No Last Name";
+        alert.innerHTML = "Please enter a last name.";
         return;
     }
 
     if (userEmail === undefined || userEmail === null)
     {
-        alert.innerHTML = "Error.Invalid email";
+        alert.innerHTML = "Please enter a valid email.";
         return;
     }
     if(!checkEmail(userEmail))
     {
-        alert.innerHTML = "Error.Invalid email";
+        alert.innerHTML = "Please enter a valid email.";
         showEditContact();
         return;
     }
@@ -715,13 +715,13 @@ function editContact()
 
     if (phoneNumber === null || phoneNumber === undefined)
     {
-        alert.innerHTML = "Error. No Phone Number";
+        alert.innerHTML = "Please enter a valid phone number.";
         return;
     }
 
     if (phoneNumber.length != 10)
     {
-        alert.innerHTML = "Error.Invalid Phone Number.";
+        alert.innerHTML = "Please enter a valid phone number.";
         return;
     }
 
@@ -939,13 +939,13 @@ function addContact()
     // Checking First Name 
     if (firstName === null || firstName === undefined)
     {
-        alert.innerHTML = "Error. No First Name";
+        alert.innerHTML = "Please enter a first name.";
         return;
     }
 
     if (firstName.length === 0)
     {
-        alert.innerHTML = "Error. No First Name";
+        alert.innerHTML = "Please enter a first name.";
         return;
     }
 
@@ -954,24 +954,24 @@ function addContact()
     // Checking Last Name
     if (lastName === null || lastName === undefined)
     {
-        alert.innerHTML = "Error. No Last Name";
+        alert.innerHTML = "Please enter a last name.";
         return;
     }
 
     if (lastName.length === 0)
     {
-        alert.innerHTML = "Error. No Last Name";
+        alert.innerHTML = "Please enter a last name.";
         return;
     }
 
     if (userEmail === undefined || userEmail === null)
     {
-        alert.innerHTML = "Error.Invalid email.";
+        alert.innerHTML = "Please enter a valid email.";
         return;
     }
     if(!checkEmail(userEmail))
     {
-        alert.innerHTML = "Error.Invalid email.";
+        alert.innerHTML = "Please enter a valid email.";
         return;
     }
 
@@ -983,13 +983,13 @@ function addContact()
 
     if (phoneNumber === null || phoneNumber === undefined)
     {
-        alert.innerHTML = "Error. No Phone Number";
+        alert.innerHTML = "Please enter a valid phone number.";
         return;
     }
 
     if (phoneNumber.length != 10)
     {
-        alert.innerHTML = "Error.Invalid Phone Number.";
+        alert.innerHTML = "Please enter a valid phone number.";
         return;
     }
    
