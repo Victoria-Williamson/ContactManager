@@ -527,12 +527,14 @@ function confirmDialog(msg) {
 
 function deleteContact()
 {
+    var doDelete = false;
     if (curr_card === null || curr_info === null || curr_image === null || card_id === null || card_id === undefined)
         return;
     confirmDialog('Do you really want to delete this?')
-        .then((output) => {
-            if(output === true) 
-            {
+        .then((output) => {doDelete = output})
+    
+        if (output)
+        {
                
                 var tmp = {cid: card_id,};
         //	var tmp = {login:login,password:hash};
@@ -578,15 +580,7 @@ function deleteContact()
     hideEditContact();
     // loadAllContact();
                 return;
-            }
-            }) 
-        .catch(err => 
-            {
-                console.log("User did not want to delete");
-                return;
-            })
-
-        
+            } 
 }
 
 function doSearch()
