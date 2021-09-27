@@ -1,15 +1,6 @@
 # ContactManager
 Contact Manager is a basic CRUD + Search Application for Contacts!!
 
-## Design
-
-### Planning the UX/UI in Figma
-Components Created in Figma by - Victoria
-![image](https://user-images.githubusercontent.com/63255236/134984409-1896b6e1-69de-4c1e-a5f4-333d7ce4b209.png)
-
-### Site Preview :
-![image](https://user-images.githubusercontent.com/63255236/134984813-7586c662-37ee-48ce-ae12-ec1164d5a0cd.png)
-
 # Contributions :
 
 ## **Project Manager** : Nick
@@ -29,6 +20,18 @@ Components Created in Figma by - Victoria
 ## **APIs**: Jerzy, Joel, Ellie, and Victoria
 - PHP
 - SwaggerHub
+
+
+## Design
+
+### Planning the UX/UI in Figma
+Components Created in Figma by - Victoria
+![image](https://user-images.githubusercontent.com/63255236/134984409-1896b6e1-69de-4c1e-a5f4-333d7ce4b209.png)
+
+### Site Preview :
+![image](https://user-images.githubusercontent.com/63255236/134984813-7586c662-37ee-48ce-ae12-ec1164d5a0cd.png)
+
+
 
 # How to Use Locally 
 1. Git clone the repository
