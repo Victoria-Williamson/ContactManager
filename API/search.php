@@ -1,6 +1,6 @@
 <?php
 
-// Make by ellie :) 
+// Made by ellie :)
 include 'util.php';
 
     $inData = getRequestInfo();
