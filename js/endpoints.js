@@ -517,13 +517,6 @@ function showEditContact(event)
     loc.style.display = "block";
 }
 
-function confirmDialog(msg) {
-    return new Promise(function (resolve, reject) {
-      let confirmed = window.confirm(msg);
-  
-      return confirmed ? resolve(true) : reject(false);
-    });
-   }
 
    function continueDeleteContact()
    {
@@ -575,20 +568,19 @@ hideEditContact();
    {
        if (curr_card === null || curr_info === null || curr_image === null || card_id === null || card_id === undefined)
            return;
-       confirmDialog('Do you really want to delete this?')
-           .then((output) => {
-               if(output) 
-               {
-                console.log("confirmed deletion");
-                continueDeleteContact();
-               }
-               }) 
-           .catch(err => 
-               {
-                   console.log("User did not want to delete");
-                   loadAllContact();
-                  
-               })
+
+           let confirmDialog = confirm("Do you really want to delete this contact?");
+
+           if (confirmDialog)
+           {
+            console.log("confirmed deletion");
+            continueDeleteContact();
+           }
+           else
+           {
+            console.log("User did not want to delete");
+            loadAllContact();
+           }
    }
 
 function doSearch()
