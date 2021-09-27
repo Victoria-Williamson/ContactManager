@@ -35,6 +35,5 @@
           
         // Close previously established connection.
         $conn->close();
-        $sql->close();
     }
 ?>
