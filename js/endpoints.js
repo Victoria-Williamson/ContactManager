@@ -525,63 +525,73 @@ function confirmDialog(msg) {
     });
    }
 
-function deleteContact()
-{
-    var doDelete = false;
-    if (curr_card === null || curr_info === null || curr_image === null || card_id === null || card_id === undefined)
-        return;
-    confirmDialog('Do you really want to delete this?')
-        .then((output) => {doDelete = output})
-    
-        if (output)
-        {
+   function deleteContact()
+   {
+       if (curr_card === null || curr_info === null || curr_image === null || card_id === null || card_id === undefined)
+           return;
+       confirmDialog('Do you really want to delete this?')
+           .then((output) => {
+               if(!output) 
+               {
+                   console.log("cancelled deletion");
+                   loadAllContact();
+                   return;
+               }
+               else
+               {
+                console.log("confirmed deletion");
+               }
+               }) 
+           .catch(err => 
+               {
+                   console.log("User did not want to delete");
+                   return;
+               })
+   
+           var tmp = {cid: card_id,};
+           //	var tmp = {login:login,password:hash};
+               var jsonPayload = JSON.stringify(tmp);
+               console.log(jsonPayload);
                
-                var tmp = {cid: card_id,};
-        //	var tmp = {login:login,password:hash};
-            var jsonPayload = JSON.stringify(tmp);
-            console.log(jsonPayload);
-            
-            var loc = url + "API/Delete.php";
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", loc, true);
-            xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-            try
-            {
-                xhr.onreadystatechange = function() 
-                {
-                    console.log("Making API Request");
-                    if (this.readyState == 4 && this.status == 200) 
-                    {
-                        
-                        var jsonObject = JSON.parse( xhr.responseText );
-                        
-                        if(jsonObject.error.localeCompare("Contact not found.") === 0)
-                        {
-                            console.log(jsonObject.error);
-                            return;
-                        }
-    
-        
-                        console.log("Removing the Contact")
-              
-                        }
-                    };
-                    xhr.send(jsonPayload);
-                }
-                catch(err)
-                {
-                    console.log(err.message);
-                }
-    curr_card.innerHTML = "";
-    curr_card.style.display = "none";
-    curr_card = null;
-    curr_image = null;
-    curr_info = null;
-    hideEditContact();
-    // loadAllContact();
-                return;
-            } 
-}
+               var loc = url + "API/Delete.php";
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", loc, true);
+               xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+               try
+               {
+                   xhr.onreadystatechange = function() 
+                   {
+                       console.log("Making API Request");
+                       if (this.readyState == 4 && this.status == 200) 
+                       {
+                           
+                           var jsonObject = JSON.parse( xhr.responseText );
+                           
+                           if(jsonObject.error.localeCompare("Contact not found.") === 0)
+                           {
+                               console.log(jsonObject.error);
+                               return;
+                           }
+       
+           
+                           console.log("Removing the Contact")
+                 
+                           }
+                       };
+                       xhr.send(jsonPayload);
+                   }
+                   catch(err)
+                   {
+                       console.log(err.message);
+                   }
+       curr_card.innerHTML = "";
+       curr_card.style.display = "none";
+       curr_card = null;
+       curr_image = null;
+       curr_info = null;
+       hideEditContact();
+       // loadAllContact();
+   }
 
 function doSearch()
 {
