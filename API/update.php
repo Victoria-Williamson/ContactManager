@@ -61,7 +61,7 @@
 	}
 
 	// Prepare SQL statement.
-	$stmt = $conn->prepare("UPDATE Contacts SET firstName =?, lastName =?, PhoneNumber =?', Email =? WHERE cid =?");
+	$stmt = $conn->prepare("UPDATE Contacts SET firstName =?, lastName =?, PhoneNumber =?, Email =? WHERE cid =?");
 
 	$stmt->bind_param("ssssi", $firstName, $lastName, $phone, $email, $cid);
 
