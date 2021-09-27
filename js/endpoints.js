@@ -725,7 +725,7 @@ function editContact()
         firstName: firstName,
         lastName: lastName,
         phoneNumber: phoneNumber,
-        userEmail: userEmail
+        email: userEmail
     };
 
 

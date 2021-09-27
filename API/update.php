@@ -40,23 +40,23 @@
 			$currentPhone = $row["PhoneNumber"];
 			$currentEmail = $row["Email"];
 
-            // Update records.
-			if (($currentFirstName != $firstName) && ($firstName == ""))
-            {
-				$firstName = $currentFirstName;
-			}
-			if (($currentLastName != $lastName) && ($lastName == ""))
-            {
-				$lastName = $currentLastName;
-			}
-			if (($currentPhone != $phone) && ($phone == ""))
-            {
-				$phone = $currentPhone;
-			}
-			if (($currentEmail != $email) && ($email == ""))
-            {
-				$email = $currentEmail;
-			}
+            // // Update records.
+			// if (($currentFirstName != $firstName) && ($firstName == ""))
+            // {
+			// 	$firstName = $currentFirstName;
+			// }
+			// if (($currentLastName != $lastName) && ($lastName == ""))
+            // {
+			// 	$lastName = $currentLastName;
+			// }
+			// if (($currentPhone != $phone) && ($phone == ""))
+            // {
+			// 	$phone = $currentPhone;
+			// }
+			// if (($currentEmail != $email) && ($email == ""))
+            // {
+			// 	$email = $currentEmail;
+			// }
 		}
 	}
 
