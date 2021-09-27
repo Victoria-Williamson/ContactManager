@@ -449,7 +449,7 @@ function searchContacts()
     document.getElementById('contact-list').innerHTML = "";
     var contactList = "";
 
-    var tmp = {search:search,userId:userId};
+    var tmp = {search:search,uid:userId};
 	var jsonPayload = JSON.stringify( tmp );
 
     // var loc = url + "APIs/CRUD/register.php";
@@ -517,76 +517,71 @@ function showEditContact(event)
     loc.style.display = "block";
 }
 
-function confirmDialog(msg) {
-    return new Promise(function (resolve, reject) {
-      let confirmed = window.confirm(msg);
-  
-      return confirmed ? resolve(true) : reject(false);
-    });
-   }
 
-function deleteContact()
-{
-    if (curr_card === null || curr_info === null || curr_image === null || card_id === null || card_id === undefined)
-        return;
-    confirmDialog('Do you really want to delete this?')
-        .then((output) => {
-            if(output !== true) 
-            {
-                loadAllContact();
-                return;
-            }
-            }) 
-        .catch(err => 
-            {
-                console.log("User did not want to delete");
-                return;
-            })
-
-        var tmp = {cid: card_id,};
-        //	var tmp = {login:login,password:hash};
-            var jsonPayload = JSON.stringify(tmp);
-            console.log(jsonPayload);
-            
-            var loc = url + "API/Delete.php";
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", loc, true);
-            xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-            try
-            {
-                xhr.onreadystatechange = function() 
-                {
-                    console.log("Making API Request");
-                    if (this.readyState == 4 && this.status == 200) 
-                    {
-                        
-                        var jsonObject = JSON.parse( xhr.responseText );
-                        
-                        if(jsonObject.error.localeCompare("Contact not found.") === 0)
-                        {
-                            console.log(jsonObject.error);
-                            return;
-                        }
-    
+   function continueDeleteContact()
+   {
+    var tmp = {cid: card_id,};
+    //	var tmp = {login:login,password:hash};
+        var jsonPayload = JSON.stringify(tmp);
+        console.log(jsonPayload);
         
-                        console.log("Removing the Contact")
-              
-                        }
-                    };
-                    xhr.send(jsonPayload);
-                }
-                catch(err)
+        var loc = url + "API/Delete.php";
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", loc, true);
+        xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+        try
+        {
+            xhr.onreadystatechange = function() 
+            {
+                console.log("Making API Request");
+                if (this.readyState == 4 && this.status == 200) 
                 {
-                    console.log(err.message);
-                }
-    curr_card.innerHTML = "";
-    curr_card.style.display = "none";
-    curr_card = null;
-    curr_image = null;
-    curr_info = null;
-    hideEditContact();
-    // loadAllContact();
-}
+                    
+                    var jsonObject = JSON.parse( xhr.responseText );
+                    
+                    if(jsonObject.error.localeCompare("Contact not found.") === 0)
+                    {
+                        console.log(jsonObject.error);
+                        return;
+                    }
+
+    
+                    console.log("Removing the Contact")
+          
+                    }
+                };
+                xhr.send(jsonPayload);
+            }
+            catch(err)
+            {
+                console.log(err.message);
+            }
+curr_card.innerHTML = "";
+curr_card.style.display = "none";
+curr_card = null;
+curr_image = null;
+curr_info = null;
+hideEditContact();
+// loadAllContact();
+   }
+   function deleteContact()
+   {
+       if (curr_card === null || curr_info === null || curr_image === null || card_id === null || card_id === undefined)
+           return;
+
+           let confirmDialog = confirm("Do you really want to delete this contact?");
+
+           if (confirmDialog)
+           {
+            console.log("confirmed deletion");
+            continueDeleteContact();
+           }
+           else
+           {
+            console.log("User did not want to delete");
+            loadAllContact();
+           }
+   }
 
 function doSearch()
 {

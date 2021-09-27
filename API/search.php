@@ -19,8 +19,8 @@ include 'util.php';
     }
     else
     {
-        // Prepares a SQL statement for execute() function (? is a variable).
-        $stmt = $connection->prepare("SELECT * FROM Contacts (WHERE firstName LIKE ? AND uid=?) OR (lastName LIKE ? AND uid=?)");
+        // Search through first and last names that belong to the user. Parenthesis for unambiguity!
+        $stmt = $connection->prepare("SELECT * FROM Contacts WHERE (firstName LIKE ? OR lastName LIKE ? )AND uid=?");
         $search = "%" . $inData["search"] . "%";
 
         // Bind each (?) variable with it's data.
