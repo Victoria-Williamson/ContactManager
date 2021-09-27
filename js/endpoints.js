@@ -604,7 +604,6 @@ function doSearch()
     var tmp = {search: search, uid: userId};
 //	var tmp = {login:login,password:hash};
     var jsonPayload = JSON.stringify(tmp);
-    console.log(jsonPayload);
     
     var loc = url + "API/search.php";
     var xhr = new XMLHttpRequest();
@@ -614,18 +613,16 @@ function doSearch()
     {
         xhr.onreadystatechange = function() 
         {
-            console.log("Making API Request");
+          
             if (this.readyState == 4 && this.status == 200) 
             {
                 
                 var jsonObject = JSON.parse( xhr.responseText);
-                console.log("response", jsonObject);
                
                 
                 if( jsonObject === undefined || jsonObject === null)
                 {	
-                    // alert.innerHTML = "Cannot find a match for the given password or username";
-                    console.log("No Contacts Found")
+                    console.log("Error in search API");
                     return;
                 }
         
@@ -635,7 +632,7 @@ function doSearch()
                    createContact(user.firstName, user.lastName, user.phone,user.email,user.cid);
                }
 
-                console.log("We need to add the contacts")
+            
       
                 }
             };
@@ -731,7 +728,7 @@ function editContact()
     };
 
     var jsonPayload = JSON.stringify(tmp);
-            console.log(jsonPayload);
+          
             
             var loc = url + "API/update.php";
             var xhr = new XMLHttpRequest();
@@ -741,7 +738,7 @@ function editContact()
             {
                 xhr.onreadystatechange = function() 
                 {
-                    console.log("Making API Request");
+                   
                     if (this.readyState == 4 && this.status == 200) 
                     {
                         
@@ -752,10 +749,6 @@ function editContact()
                             console.log(jsonObject.error);
                             return;
                         }
-    
-        
-                        console.log("Updating the Contact")
-              
                         }
                     };
                     xhr.send(jsonPayload);
@@ -808,7 +801,7 @@ function editContact()
     curr_card = null;
     curr_image = null;
     curr_info = null;
-    console.log("reached end of edit contact");
+   
     hideEditContact();
 }
 
@@ -845,8 +838,6 @@ function hideAddContact()
 }
 function createContact(firstName, lastName,phoneNumber,userEmail,cid)
 {
-    console.log(document.getElementById("add-contact-div"));
-
     hideAddContact();
     phoneNumber = phoneNumber.replace('-',"");
     phoneNumber = phoneNumber.replace('(', "");
@@ -858,7 +849,6 @@ function createContact(firstName, lastName,phoneNumber,userEmail,cid)
     card.className = "user" + cid
     card.onclick = function (e)
     {
-        console.log(e);
         showEditContact(e.target);
     }
     var cardImage = document.createElement('div');
@@ -896,11 +886,7 @@ function createContact(firstName, lastName,phoneNumber,userEmail,cid)
     user_information.append(email);
 
     card.appendChild(user_information);
-    console.log(document.getElementById('action-div'));
-    console.log(document.getElementById('contact-div'));
     var parent = document.getElementById('contact-div');
-    console.log(parent);
-    console.log(document.getElementsByClassName("contact-list"))
     var list = document.getElementById("contact-list");
 
     list.append(card);
@@ -911,8 +897,6 @@ function createContact(firstName, lastName,phoneNumber,userEmail,cid)
 function checkEmail(email)
 {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    console.log("check email result", re.test(String(email).toLowerCase()));
     return re.test(String(email).toLowerCase());
 }
 function addContact()
@@ -991,7 +975,7 @@ function addContact()
     // Check that the login credentials are correct
     var tmp = {uid: userId,firstName:firstName, lastName: lastName, number:phoneNumber, email:userEmail};
 
-    console.log("Information from form:", tmp);
+   
 //	var tmp = {login:login,password:hash};
 	var jsonPayload = JSON.stringify( tmp );
 	
@@ -1002,7 +986,7 @@ function addContact()
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
-        console.log("Making Create API Request....");
+      
 		xhr.onreadystatechange = function() 
 		{
            
@@ -1032,7 +1016,6 @@ function addContact()
     card.className = "user" + cid
     card.onclick = function (e)
     {
-        console.log(e);
         showEditContact(e.target);
     }
     var cardImage = document.createElement('div');
