@@ -579,7 +579,6 @@ hideEditContact();
            else
            {
             console.log("User did not want to delete");
-            loadAllContact();
            }
    }
 
