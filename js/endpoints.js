@@ -531,13 +531,7 @@ function confirmDialog(msg) {
            return;
        confirmDialog('Do you really want to delete this?')
            .then((output) => {
-               if(!output) 
-               {
-                   console.log("cancelled deletion");
-                   loadAllContact();
-                   return;
-               }
-               else
+               if(output) 
                {
                 console.log("confirmed deletion");
                }
@@ -545,6 +539,7 @@ function confirmDialog(msg) {
            .catch(err => 
                {
                    console.log("User did not want to delete");
+                   loadAllContact();
                    return;
                })
    
