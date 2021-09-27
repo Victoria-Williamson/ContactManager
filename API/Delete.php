@@ -24,14 +24,17 @@
         $sql = "DELETE FROM Contacts WHERE cid=" .$inData["cid"]; 
         $stmt = $conn->prepare($sql);
 
-        if ($conn->query($sql) === TRUE) {
+        if ($conn->query($sql) === TRUE)
+        {
             returnWithContactError("Contact deleted");
-          } 
-        else {
+        }
+        else
+        {
             returnWithContactError("Contact not found");
-          }
+        }
           
         // Close previously established connection.
         $conn->close();
+        $sql->close();
     }
 ?>
