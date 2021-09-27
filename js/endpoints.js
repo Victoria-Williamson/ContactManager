@@ -662,13 +662,13 @@ function editContact()
     if (firstName === null || firstName === undefined)
     {
         
-        alert.innerHTML = "Please enter a first name.";
+        alert.innerHTML = "Error. No First Name";
         return;
     }
 
     if (firstName.length === 0)
     {
-        alert.innerHTML = "Please enter a first name.";
+        alert.innerHTML = "Error. No First Name";
         return;
     }
 
@@ -677,24 +677,24 @@ function editContact()
     // Checking Last Name
     if (lastName === null || lastName === undefined)
     {
-        alert.innerHTML = "Please enter a last name.";
+        alert.innerHTML = "Error. No Last Name";
         return;
     }
 
     if (lastName.length === 0)
     {
-        alert.innerHTML = "Please enter a last name.";
+        alert.innerHTML = "Error. No Last Name";
         return;
     }
 
     if (userEmail === undefined || userEmail === null)
     {
-        alert.innerHTML = "Please enter a valid email.";
+        alert.innerHTML = "Error.Invalid email";
         return;
     }
     if(!checkEmail(userEmail))
     {
-        alert.innerHTML = "Please enter a valid email.";
+        alert.innerHTML = "Error.Invalid email";
         showEditContact();
         return;
     }
@@ -707,13 +707,13 @@ function editContact()
 
     if (phoneNumber === null || phoneNumber === undefined)
     {
-        alert.innerHTML = "Please enter a valid phone number.";
+        alert.innerHTML = "Error. No Phone Number";
         return;
     }
 
     if (phoneNumber.length != 10)
     {
-        alert.innerHTML = "Please enter a valid phone number.";
+        alert.innerHTML = "Error.Invalid Phone Number.";
         return;
     }
 
@@ -728,8 +728,9 @@ function editContact()
         userEmail: userEmail
     };
 
+
     var jsonPayload = JSON.stringify(tmp);
-          
+            console.log(jsonPayload);
             
             var loc = url + "API/update.php";
             var xhr = new XMLHttpRequest();
@@ -739,7 +740,7 @@ function editContact()
             {
                 xhr.onreadystatechange = function() 
                 {
-                   
+                    console.log("Making API Request");
                     if (this.readyState == 4 && this.status == 200) 
                     {
                         
@@ -750,6 +751,10 @@ function editContact()
                             console.log(jsonObject.error);
                             return;
                         }
+    
+        
+                        console.log("Updating the Contact")
+              
                         }
                     };
                     xhr.send(jsonPayload);
@@ -802,10 +807,9 @@ function editContact()
     curr_card = null;
     curr_image = null;
     curr_info = null;
-   
+    console.log("reached end of edit contact");
     hideEditContact();
 }
-
 function showAddContact()
 {
     var parent = document.createElement('div');
