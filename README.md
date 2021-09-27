@@ -23,17 +23,14 @@ Components Created in Figma by - Victoria
 - CSS
 - JS
 
-##**Database** : Joel and Jerzy
+## **Database** : Joel and Jerzy
 - MySQL
 
-##**APIs**: Jerzy, Joel, Ellie, and Victoria
+## **APIs**: Jerzy, Joel, Ellie, and Victoria
 - PHP
 - SwaggerHub
 
-## About
-
-
-## How to Use Locally 
+# How to Use Locally 
 1. Git clone the repository
 2. cd ContactManager
 3. cmd php -S 127.0.0.1:8000
