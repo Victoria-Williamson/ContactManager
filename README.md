@@ -12,12 +12,12 @@ Components Created in Figma by - Victoria
 
 # Contributions :
 
-##**Project Manager** : Nick
+## **Project Manager** : Nick
 
-##**Documentation** : Ellie
+## **Documentation** : Ellie
 - SwaggerHub
 
-##**Front End** : Victoria 
+## **Front End** : Victoria 
 - Figma
 - HTML
 - CSS
