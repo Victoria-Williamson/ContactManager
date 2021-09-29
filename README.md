@@ -1,3 +1,5 @@
+[image](https://github.com/Victoria-Williamson/ContactManager/blob/master/images/stirup.png)
+
 # ContactManager
 Contact Manager is a basic CRUD + Search Application for Contacts!!
 
