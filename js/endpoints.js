@@ -1,5 +1,5 @@
-var url = "https://stirup.co/";
-var apiURL = "https://stirup.co/API"
+var url = "https://contactmanager.pages.dev/";
+var apiURL = "https://contactmanager.pages.dev/API"
 
 var info = "";
 var userId = -1;
